@@ -1,0 +1,12 @@
+<dd/mm/yyyy>
+9/12/2020:
+==========
+~ Add Class Coordinate
+~ Add Class Object
+~ Add Class Skila
+~ Add basic code for Coordinate
+
+
+To Add:
+=======
+~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.

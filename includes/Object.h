@@ -1,6 +1,3 @@
-
-#pragma once
-
 /** @brief Dummy class used for illustration purposes. Doing something with it.
 
     Detailed description follows here.
@@ -12,24 +9,15 @@
 
 */
 
+#pragma once
 
-class TestingClass {
-
+class Object  
+{
 	public:
-		/** Default Constructor. Does something
-		@param input the value to store
-		*/
-		TestingClass(int input = 0);
-		/** Default Destructor. Does something
-		*/
-		~TestingClass();
+		Object();
+		~Object();
 
-		/** Returns the value stored as a private member
-		@return the actual value stored
-		*/
-		int get_value();
 
 	private:
-		int m_stored_value; /**<stored value>*/
 
 };
