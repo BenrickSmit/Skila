@@ -70,7 +70,7 @@ uint16_t Coordinate::get_a() {
 }
 
 std::vector<double> Coordinate::get_coordinate() {
-    return std::vector<double>(m_x, m_y, m_z);
+    return std::vector<double>({m_x, m_y, m_z});
 }
 
 void Coordinate::set_x(double value) {
@@ -126,7 +126,7 @@ bool Coordinate::set_colour(std::vector<uint16_t> colour_input) {
 }
 
 std::vector<uint16_t> Coordinate::get_colour() {
-    return std::vector<uint16_t>(m_r, m_g, m_b, m_a);
+    return std::vector<uint16_t>({m_r, m_g, m_b, m_a});
 }
 
 bool Coordinate::set_coordinate(double x, double y, double z) {

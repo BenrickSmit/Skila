@@ -73,4 +73,5 @@ class Coordinate  {
 		uint16_t m_b;	// The value of blue in RGBA
 		uint16_t m_a;	// The value of alpha in RGBA
 
+
 };
