@@ -29,25 +29,26 @@ class Coordinate  {
 		Coordinate(std::vector<uint16_t> input_colours);
 		Coordinate(std::vector<double> input_coordinates, std::vector<uint16_t> input_colours);
 
-		~Coordinate();
-
 		// Getters
-			double get_x();
-			double get_y();
-			double get_z();
+			double get_x() const;
+			double get_y() const;
+			double get_z() const;
+			double get_k() const;
 
-			uint16_t get_r();
-			uint16_t get_g();
-			uint16_t get_b();
-			uint16_t get_a();
+			uint16_t get_r() const;
+			uint16_t get_g() const;
+			uint16_t get_b() const;
+			uint16_t get_a() const;
 
-			std::vector<double> get_coordinate();
-			std::vector<uint16_t> get_colour();
+			std::vector<double> get_coordinate() const;
+			std::vector<double> get_plane() const;
+			std::vector<uint16_t> get_colour() const;
 
 		// Setters
 			void set_x(double value);
 			void set_y(double value);
 			void set_z(double value);
+			void set_k(double value);
 
 			void set_r(uint16_t value);
 			void set_g(uint16_t value);
@@ -56,9 +57,17 @@ class Coordinate  {
 
 			bool set_coordinate(std::vector<double> coordinate_input);
 			bool set_colour(std::vector<uint16_t> colour_input);
+			bool set_plane(std::vector<double> plane_input);
 			bool set_coordinate(double x = 0, double y = 0, double z = 0);
 			bool set_colour(uint16_t red = 0, uint16_t green = 0, uint16_t blue = 0, uint16_t alpha = 0);
-			
+			bool set_plane(double x, double y, double z, double k);
+
+		// Other
+			Coordinate& scalar_multiply(double scalar_multiplication);
+			bool operator==(const Coordinate &rhs) const;
+			bool operator!=(const Coordinate &rhs) const;
+			Coordinate operator-(const Coordinate & rhs);
+			Coordinate operator+(const Coordinate & rhs);
 	protected:
 
 
@@ -67,11 +76,13 @@ class Coordinate  {
 		double m_x;		// The coordinate on the x-axis
 		double m_y;		// The coordinate on the y-axis
 		double m_z;		// The coordinate on the z-axis
+		double m_k;		// The coordinate used for a plane
 
 		uint16_t m_r;	// The value of red in RGBA
 		uint16_t m_g;	// The value of green in RGBA
 		uint16_t m_b;	// The value of blue in RGBA
 		uint16_t m_a;	// The value of alpha in RGBA
 
-
+		static const uint16_t MAX_COLOUR_VALUE;
+		static const uint16_t MIN_COLOUR_VALUE;
 };

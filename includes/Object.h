@@ -11,13 +11,36 @@
 
 #pragma once
 
-class Object  
-{
-	public:
-		Object();
-		~Object();
+#include <iostream>
+#include <stdint.h>
+#include <cmath>
+#include "Coordinate.h"
 
+class Object  {
+	public:
+        // Ctor and Dtor
+		Object();
+
+        // Getters
+        std::vector<Coordinate> get_points();
+        Coordinate get_normal();
+        std::vector<double> get_plane();
+
+        // Setters
+        void add_triangle(const Coordinate& point1, const Coordinate& point2, 
+                            const Coordinate& point3);
+        void add_triangle(std::vector<Coordinate> points);
+
+        // Others
+        void calculate_object_normal();
+        void calculate_vector_plane();
+        static double dot_product(Coordinate& lhs, Coordinate& rhs);
 
 	private:
+        //bool is_triangle;
+        Coordinate m_object_normal;
+
+        std::vector<Coordinate> m_list_coordinates;
+        
 
 };
