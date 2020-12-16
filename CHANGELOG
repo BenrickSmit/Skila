@@ -6,6 +6,13 @@
 ~ Add Class Skila
 ~ Add basic code for Coordinate
 
+17/12/2020:
+===========
+~ Finished Basic Functionality of Coordinate Class
+~ Finished Basic Functionality of Object Class
+~ Extend Coordinate class with hidden 4th point k for plane calculation
+~ Extend Object class for normal calculation and dot product calculation
+~ Extend Object class with automatic parameter calculation
 
 To Add:
 =======
