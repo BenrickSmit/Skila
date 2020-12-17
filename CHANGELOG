@@ -14,6 +14,10 @@
 ~ Extend Object class for normal calculation and dot product calculation
 ~ Extend Object class with automatic parameter calculation
 
+18/12/2020:
+===========
+~ Add Scalar Multiplication Tests for Vector Coordinates
+
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.

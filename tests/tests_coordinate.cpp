@@ -133,3 +133,22 @@ TEST(TEST_COORDINATE_SUITE, OperatorInequalOverload_OriginVectorAndUnitVectorIne
   Coordinate coord1{0,0,0}, coord2{1,1,1};
   EXPECT_EQ(true, coord1!=coord2);
 }
+
+TEST(TEST_COORDINATE_SUITE, scalar_multiply_UnitVectorInput_DoubleUnitVectorReturned) {
+  Coordinate coord1{1,1,1}, coord2{1.1,1.1,1.1}, expected_output1{2,2,2}, 
+  expected_output2{2.2,2.2,2.2};
+
+  coord1 = coord1.scalar_multiply(2);
+  coord2 = coord2.scalar_multiply(2);
+
+  EXPECT_EQ(coord1.get_coordinate(), expected_output1.get_coordinate());
+  EXPECT_EQ(coord2.get_coordinate(), expected_output2.get_coordinate());
+}
+
+TEST(TEST_COORDINATE_SUITE, scalar_multiply_UnitVectorInput_NegativeUnitVectorReturned) {
+  Coordinate coord1{1,1,1}, expected_output{-1,-1,-1};
+
+  coord1 = coord1.scalar_multiply(-1);
+
+  EXPECT_EQ(coord1.get_coordinate(), expected_output.get_coordinate());
+}
