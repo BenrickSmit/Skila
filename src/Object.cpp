@@ -1,5 +1,7 @@
 #include "Object.h"  
 
+const uint8_t Object::MAX_REQUIRED_COORDINATES = 3;
+
 Object::Object(){
     // Do nothing
     m_list_coordinates.clear();
@@ -54,7 +56,7 @@ void Object::add_triangle(const Coordinate& point1, const Coordinate& point2,
 // Tested
 void Object::add_triangle(std::vector<Coordinate> points) {
     // Use the point-based overloaded add_triangle function only if the required number of points are available
-    if(points.size() == 3){
+    if(points.size() == MAX_REQUIRED_COORDINATES){
         add_triangle(points.at(0),points.at(1),points.at(2));
     }else {
         std::cerr << "ERROR: Object::add_triangle() input vector size mismatch. Required: 3, Recieved: " << points.size() << std::endl;
@@ -122,3 +124,169 @@ double Object::dot_product(Coordinate& lhs, Coordinate& rhs) {
 
     return dot_product;
 }
+
+double Object::get_ray_lambda(Coordinate& input_plane, 
+                                    Coordinate& ray_origin,
+                                    Coordinate& view_plane) {
+    double lambda_to_return = 0.0;
+
+    // The intersection of the ray (lambda) is calculated by using the input plane's x,y,z
+    // values, the origin of the ray, and the view plane. 
+    lambda_to_return = (dot_product(input_plane,ray_origin) + input_plane.get_k())
+        / dot_product(input_plane,view_plane);
+
+    return lambda_to_return;
+}
+
+Coordinate Object::get_ray_intersection(Coordinate& input_plane,
+                                                Coordinate& ray_origin,
+                                                Coordinate& view_plane) {
+    Coordinate to_return;
+
+    // Get the value of lambda to calculate the coordinate of intersection between
+    // the ray from the view_plane to the object itself
+    double lambda = get_ray_lambda(input_plane, ray_origin, view_plane);
+
+    if(lambda < 0){
+        // IN the case that lambda is negative, it means that the intersection
+        // point is behind the camera, and thus not necessary
+        to_return = Coordinate(std::vector<double>{__DBL_MIN__, __DBL_MIN__, __DBL_MIN__}); 
+        return to_return;
+    }
+
+    to_return.set_x((lambda*view_plane.get_x()) + ray_origin.get_x());
+    to_return.set_y((lambda*view_plane.get_y()) + ray_origin.get_y());
+    to_return.set_z((lambda*view_plane.get_z()) + ray_origin.get_z());
+    to_return.set_k(0);
+
+    return to_return;
+}
+
+bool Object::min(const Coordinate& to_check, const Coordinate& min_bounds) const{
+    // This function determines whether the coordinate specified is within bounds of
+    // all three coordinates provided by the triangle, by specifically checking to
+    // see whether the coordinate to check is >= to min_bounds for each axis.
+    bool result = true;
+
+    // See if the coordinate is within bounds
+    if (to_check.get_x() < min_bounds.get_x()){
+        result = false;
+        return result;
+    }
+
+    if (to_check.get_y() < min_bounds.get_y()) {
+        result = false;
+        return result;
+    }
+
+    if (to_check.get_z() < min_bounds.get_z()) {
+        result = false;
+        return result;
+    }
+
+    return result;
+}
+
+bool Object::max(const Coordinate& to_check, const Coordinate& max_bounds) const{
+    // This function determines whether the coordinate specified is within bounds of
+    // all three coordinates provided by the triangle, by specifically checking to
+    // see whether the coordinate to check is <= to max_bounds for each axis.
+    bool result = true;
+
+    // See if the coordinate is within bounds
+    if (to_check.get_x() >= max_bounds.get_x()){
+        result = false;
+        return result;
+    }
+
+    if (to_check.get_y() >= max_bounds.get_y()) {
+        result = false;
+        return result;
+    }
+
+    if (to_check.get_z() >= max_bounds.get_z()) {
+        result = false;
+        return result;
+    }
+
+    return result;   
+}
+
+Coordinate& Object::get_max_coordinate() {
+    // This function will only look at the values within the
+    // vector and find the max coordinates for each x,y, and z axes.
+    static Coordinate max;
+
+    // Obtain the coordinates as necessary only if equal to the required amount
+    if(m_list_coordinates.size() != MAX_REQUIRED_COORDINATES) {
+        std::cerr << "ERROR: Object::get_min_coordinate() total coordinates exceed " 
+                    << MAX_REQUIRED_COORDINATES << std::endl;
+        exit(1);
+    }    
+
+    // Check the coordinates and obtain the one with the minimum values for each coordinate
+    max.set_x(get_max_value(m_list_coordinates.at(0).get_x(), m_list_coordinates.at(1).get_x(), m_list_coordinates.at(2).get_x()));
+    max.set_y(get_max_value(m_list_coordinates.at(0).get_y(), m_list_coordinates.at(1).get_y(), m_list_coordinates.at(2).get_y()));
+    max.set_z(get_max_value(m_list_coordinates.at(0).get_z(), m_list_coordinates.at(1).get_z(), m_list_coordinates.at(2).get_z()));
+    max.set_k(get_max_value(m_list_coordinates.at(0).get_k(), m_list_coordinates.at(1).get_k(), m_list_coordinates.at(2).get_k()));
+
+    return max;
+}
+
+Coordinate& Object::get_min_coordinate() {
+    // This function will only look at the values within the
+    // vector and find the min coordinates for each x,y, and z axes.
+    static Coordinate min;
+
+    // Obtain the coordinates as necessary only if equal to the required amount
+    if(m_list_coordinates.size() != MAX_REQUIRED_COORDINATES) {
+        std::cerr << "ERROR: Object::get_min_coordinate() total coordinates exceed " 
+                    << MAX_REQUIRED_COORDINATES << std::endl;
+        exit(1);
+    }    
+
+    // Check the coordinates and obtain the one with the minimum values for each coordinate
+    min.set_x(get_min_value(m_list_coordinates.at(0).get_x(), m_list_coordinates.at(1).get_x(), m_list_coordinates.at(2).get_x()));
+    min.set_y(get_min_value(m_list_coordinates.at(0).get_y(), m_list_coordinates.at(1).get_y(), m_list_coordinates.at(2).get_y()));
+    min.set_z(get_min_value(m_list_coordinates.at(0).get_z(), m_list_coordinates.at(1).get_z(), m_list_coordinates.at(2).get_z()));
+    min.set_k(get_min_value(m_list_coordinates.at(0).get_k(), m_list_coordinates.at(1).get_k(), m_list_coordinates.at(2).get_k()));
+
+    return min;
+}
+
+double Object::get_max_value(double x, double y, double z) {
+    // This function simply tests each value against the next to find the maximum
+    double max = __DBL_MIN__;
+
+    // Determine which is bigger, x or y
+    max = x;    
+    if(max < y) {
+        max = y;
+    }
+
+    // Determine which is bigger, x,y, or z
+    if(max < z) {
+        max = z;
+    }
+
+    return max;
+}
+
+double Object::get_min_value(double x, double y, double z) {
+    // This function simply tests each value against the next to find the minimum
+    double min = __DBL_MAX__;
+
+    // Determine which is bigger, x or y
+    min = x;    
+    if(min > y) {
+        min = y;
+    }
+
+    // Determine which is bigger, x,y, or z
+    if(min > z) {
+        min = z;
+    }
+
+    return min;
+}
+

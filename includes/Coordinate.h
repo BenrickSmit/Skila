@@ -83,6 +83,8 @@ class Coordinate  {
 		uint16_t m_b;	// The value of blue in RGBA
 		uint16_t m_a;	// The value of alpha in RGBA
 
+		//bool is_valid;
+
 		static const uint16_t MAX_COLOUR_VALUE;
 		static const uint16_t MIN_COLOUR_VALUE;
 };

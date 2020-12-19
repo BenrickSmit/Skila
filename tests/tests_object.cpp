@@ -57,3 +57,4 @@ TEST(TEST_OBJECT_SUITE, dot_product_OneToTwoAndFourMinusFiveSixInput_CorrectDotP
     
     EXPECT_EQ(expected_output, Object::dot_product(x,y));
 }
+

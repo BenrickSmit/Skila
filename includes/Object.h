@@ -35,12 +35,26 @@ class Object  {
         void calculate_object_normal();
         void calculate_vector_plane();
         static double dot_product(Coordinate& lhs, Coordinate& rhs);
+        static double get_ray_lambda(Coordinate& input_plane, 
+                                    Coordinate& ray_origin,
+                                    Coordinate& view_plane);
+        static Coordinate get_ray_intersection(Coordinate& input_plane,
+                                                Coordinate& ray_origin,
+                                                Coordinate& view_plane);
+
+    protected:
+        bool min(const Coordinate& to_check, const Coordinate& min_bounds) const;
+        bool max(const Coordinate& to_check, const Coordinate& max_bounds) const;
+        Coordinate& get_max_coordinate();
+        Coordinate& get_min_coordinate();
+        double get_min_value(double x, double y, double z);
+        double get_max_value(double x, double y, double z);
 
 	private:
         //bool is_triangle;
         Coordinate m_object_normal;
 
         std::vector<Coordinate> m_list_coordinates;
-        
 
+        static const uint8_t MAX_REQUIRED_COORDINATES;
 };

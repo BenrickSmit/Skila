@@ -17,7 +17,10 @@
 18/12/2020:
 ===========
 ~ Add Scalar Multiplication Tests for Vector Coordinates
+~ Add Ray Intersection Calculations for Ray Tracing
+~ Add Min/Max functions for Ray bounds testing
 
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.
+~ Add coordinate movement funcitons via addition of additional vectors - required for movement of scenery
