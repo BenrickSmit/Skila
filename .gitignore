@@ -36,3 +36,5 @@
 
 # the build project
 build
+bin
+.vs
