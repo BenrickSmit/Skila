@@ -21,7 +21,7 @@ list(FIND TEST_FILE_SOURCES "${CMAKE_SOURCE_DIR}/tests/../src/main.cpp" MAIN_CPP
 message(">> INDEX: ${MAIN_CPP_INDEX}")
 
 #add_executable(${TEST_PROJECT_NAME} tests_main.cpp)
-add_executable(${TEST_PROJECT_NAME} ${TEST_FILE_SOURCES})
+add_executable(${TEST_PROJECT_NAME} ${TEST_FILE_SOURCES} "tests_matrix_operations.cpp")
 ## Find the Header And Source files to test
 target_include_directories(${TEST_PROJECT_NAME} PRIVATE ../includes/ )
 target_include_directories(${TEST_PROJECT_NAME} PRIVATE ../src/ )

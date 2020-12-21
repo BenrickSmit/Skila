@@ -90,7 +90,7 @@ void Object::calculate_object_normal() {
     //m_object_normal.set_x((line1.get_y() * line2.get_z()) - (line1.get_z() * line2.get_y())); 
     //m_object_normal.set_y((line1.get_z() * line2.get_x()) - (line1.get_x() * line2.get_z()));
     //m_object_normal.set_z((line1.get_x() * line2.get_y()) - (line1.get_y() * line2.get_x()));
-    m_object_normal = Object::cross_product(line1, line2);
+    m_object_normal = MatrixOperations::cross_product(line1, line2);
     m_object_normal.set_k(0);
 }
 
@@ -104,42 +104,8 @@ void Object::calculate_vector_plane() {
     Coordinate tempNormal = m_object_normal;
 
     // Set the value of k
-    m_object_normal.set_k(dot_product(tempNormal.scalar_multiply(-1), temp));
+    m_object_normal.set_k(MatrixOperations::dot_product(tempNormal.scalar_multiply(-1), temp));
 }
-
-// Tested
-Coordinate Object::cross_product(const Coordinate& lhs, const Coordinate& rhs) {
-    // This function will be responsible for calculating the cross product of two
-    // vectors
-    Coordinate result;
-
-    // Calculate the cross-product
-    result.set_x((lhs.get_y() * rhs.get_z()) - (lhs.get_z() * rhs.get_y()));
-    result.set_y((lhs.get_z() * rhs.get_x()) - (lhs.get_x() * rhs.get_z()));
-    result.set_z((lhs.get_x() * rhs.get_y()) - (lhs.get_y() * rhs.get_x()));
-
-    return result;
-}
-
-// Tested
-double Object::dot_product(Coordinate& lhs, Coordinate& rhs) {
-    // This function will calculate the dot product between two coordinates and return it
-    Coordinate result;
-    double dot_product = 0;
-
-    // the dot product is the multiplication of the member variables of the Coordinates
-    result.set_x(lhs.get_x() * rhs.get_x());
-    result.set_y(lhs.get_y() * rhs.get_y());
-    result.set_z(lhs.get_z() * rhs.get_z());
-    result.set_k(lhs.get_k() * rhs.get_k());
-
-    dot_product = result.get_x() + result.get_y() + result.get_z();
-
-    // PS: Colours not affected - Want to do some colour math later
-
-    return dot_product;
-}
-
 
 
 double Object::get_ray_lambda(Coordinate& input_plane, 
@@ -149,8 +115,8 @@ double Object::get_ray_lambda(Coordinate& input_plane,
 
     // The intersection of the ray (lambda) is calculated by using the input plane's x,y,z
     // values, the origin of the ray, and the view plane. 
-    lambda_to_return = (dot_product(input_plane,ray_origin) + input_plane.get_k())
-        / dot_product(input_plane,view_plane);
+    lambda_to_return = (MatrixOperations::dot_product(input_plane,ray_origin) + input_plane.get_k())
+        / MatrixOperations::dot_product(input_plane,view_plane);
 
     return lambda_to_return;
 }
@@ -167,7 +133,7 @@ Coordinate Object::get_ray_intersection(Coordinate& input_plane,
     if(lambda < 0){
         // IN the case that lambda is negative, it means that the intersection
         // point is behind the camera, and thus not necessary
-        to_return = Coordinate(std::vector<double>{__DBL_MIN__, __DBL_MIN__, __DBL_MIN__}); 
+        to_return = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
         return to_return;
     }
 
@@ -186,110 +152,12 @@ Coordinate Object::get_ray_intersection(Coordinate& input_plane,
     to_return.set_a(input_plane.get_a());
 
     // Determine whether the ray is at least within the bounding box for sanity and validity
-    if (within_bounding_box(to_return, m_list_coordinates)) {
-        to_return = Coordinate(std::vector<double>{__DBL_MIN__, __DBL_MIN__, __DBL_MIN__}); 
+    if (MatrixOperations::within_bounding_box(to_return, m_list_coordinates)) {
+        to_return = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
         return to_return;
     }
 
     return to_return;
 }
 
-bool Object::within_plane(Coordinate& input_ray_intersection, 
-                            std::vector<Coordinate> list_coordinates){
-    // This funciton will simply determine whether the input_plane and the lines
-    // found will be on the same side. If it isn't the information should not be taken to heart
-    Coordinate line_t2_t3, line_t1_t3, line_t1_t2;
-    double c_t2_t3, c_t1_t3, c_t1_t2;
-    bool result = true;
-
-    // Calculate the 
-    line_t2_t3 = Coordinate(list_coordinates.at(1)) - Coordinate(list_coordinates.at(2));
-    
-
-    // Calculat the
-    line_t1_t3 = Coordinate(list_coordinates.at(0)) - Coordinate(list_coordinates.at(2));
-
-
-    // Calculate the 
-    line_t1_t2 = Coordinate(list_coordinates.at(0)) - Coordinate(list_coordinates.at(1));
-
-    return result;
-}
-
-bool Object::within_bounding_box(Coordinate& input_ray_intersection, std::vector<Coordinate> list_coordinates) {
-    // This function will obtain the minimum and maximum values for the inherent
-    // coordinates and determine whether the input plane is at least within the
-    // bounding box of the triangle
-    double min_x = 0, min_y = 0, min_z = 0, max_x = 0, max_y = 0, max_z = 0;
-    bool result = true;
-
-    // Find the minimum values
-    min_x = get_min_value(list_coordinates.at(0).get_x(), list_coordinates.at(1).get_x(), list_coordinates.at(2).get_x());
-    min_y = get_min_value(list_coordinates.at(0).get_y(), list_coordinates.at(1).get_y(), list_coordinates.at(2).get_y());
-    min_z = get_min_value(list_coordinates.at(0).get_z(), list_coordinates.at(1).get_z(), list_coordinates.at(2).get_z());
-
-    // Find the maximum values
-    max_x = get_max_value(list_coordinates.at(0).get_x(), list_coordinates.at(1).get_x(), list_coordinates.at(2).get_x());
-    max_y = get_max_value(list_coordinates.at(0).get_y(), list_coordinates.at(1).get_y(), list_coordinates.at(2).get_y());
-    max_z = get_max_value(list_coordinates.at(0).get_z(), list_coordinates.at(1).get_z(), list_coordinates.at(2).get_z());
-
-    // Determine whether the plane is within the bounding box
-    // Within bounds for x
-    if ((min_x > input_ray_intersection.get_x()) || (max_x < input_ray_intersection.get_x())) {
-        result = false;
-        return result;
-    }
-
-    // Within bounds for y
-    if ((min_y > input_ray_intersection.get_y()) || (max_y < input_ray_intersection.get_y())) {
-        result = false;
-        return result;
-    }
-
-    // Within bounds for z
-    if ((min_z > input_ray_intersection.get_z()) || (max_z < input_ray_intersection.get_z())) {
-        result = false;
-        return result;
-    }
-
-    return result;
-}
-
-// Tested
-double Object::get_max_value(double x, double y, double z) {
-    // This function simply tests each value against the next to find the maximum
-    double max = __DBL_MIN__;
-
-    // Determine which is bigger, x or y
-    max = x;    
-    if(max < y) {
-        max = y;
-    }
-
-    // Determine which is bigger, x,y, or z
-    if(max < z) {
-        max = z;
-    }
-
-    return max;
-}
-
-// Tested
-double Object::get_min_value(double x, double y, double z) {
-    // This function simply tests each value against the next to find the minimum
-    double min = __DBL_MAX__;
-
-    // Determine which is bigger, x or y
-    min = x;    
-    if(min > y) {
-        min = y;
-    }
-
-    // Determine which is bigger, x,y, or z
-    if(min > z) {
-        min = z;
-    }
-
-    return min;
-}
 
