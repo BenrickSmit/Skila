@@ -51,10 +51,3 @@ TEST(TEST_OBJECT_SUITE, get_points_InputTestInput_CorrectVectorOfCoordinatesRetu
     EXPECT_EQ(test_return, expected_points);
 }
 
-TEST(TEST_OBJECT_SUITE, dot_product_OneToTwoAndFourMinusFiveSixInput_CorrectDotProductReturned) {
-    Coordinate x{1,2,3}, y{4,-5,6};
-    double expected_output{12};
-    
-    EXPECT_EQ(expected_output, Object::dot_product(x,y));
-}
-

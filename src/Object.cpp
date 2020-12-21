@@ -87,9 +87,10 @@ void Object::calculate_object_normal() {
 
     // Calculate the Cross Product, i.e. line1.x * line2.x, etc
     m_object_normal = Coordinate{0,0,0};
-    m_object_normal.set_x((line1.get_y() * line2.get_z()) - (line1.get_z() * line2.get_y())); 
-    m_object_normal.set_y((line1.get_z() * line2.get_x()) - (line1.get_x() * line2.get_z()));
-    m_object_normal.set_z((line1.get_x() * line2.get_y()) - (line1.get_y() * line2.get_x()));
+    //m_object_normal.set_x((line1.get_y() * line2.get_z()) - (line1.get_z() * line2.get_y())); 
+    //m_object_normal.set_y((line1.get_z() * line2.get_x()) - (line1.get_x() * line2.get_z()));
+    //m_object_normal.set_z((line1.get_x() * line2.get_y()) - (line1.get_y() * line2.get_x()));
+    m_object_normal = Object::cross_product(line1, line2);
     m_object_normal.set_k(0);
 }
 
@@ -104,6 +105,20 @@ void Object::calculate_vector_plane() {
 
     // Set the value of k
     m_object_normal.set_k(dot_product(tempNormal.scalar_multiply(-1), temp));
+}
+
+// Tested
+Coordinate Object::cross_product(const Coordinate& lhs, const Coordinate& rhs) {
+    // This function will be responsible for calculating the cross product of two
+    // vectors
+    Coordinate result;
+
+    // Calculate the cross-product
+    result.set_x((lhs.get_y() * rhs.get_z()) - (lhs.get_z() * rhs.get_y()));
+    result.set_y((lhs.get_z() * rhs.get_x()) - (lhs.get_x() * rhs.get_z()));
+    result.set_z((lhs.get_x() * rhs.get_y()) - (lhs.get_y() * rhs.get_x()));
+
+    return result;
 }
 
 // Tested
@@ -124,6 +139,8 @@ double Object::dot_product(Coordinate& lhs, Coordinate& rhs) {
 
     return dot_product;
 }
+
+
 
 double Object::get_ray_lambda(Coordinate& input_plane, 
                                     Coordinate& ray_origin,
@@ -159,27 +176,78 @@ Coordinate Object::get_ray_intersection(Coordinate& input_plane,
     to_return.set_z((lambda*view_plane.get_z()) + ray_origin.get_z());
     to_return.set_k(0);
 
+    // Set the colour of the plane based on the point used.
+    // This can be used in the future to help with refraction and reflection,
+    // even transparent materials
+    // \todo: add in colour transparency, reflection, refraction, etc.
+    to_return.set_r(input_plane.get_r());
+    to_return.set_g(input_plane.get_g());
+    to_return.set_b(input_plane.get_b());
+    to_return.set_a(input_plane.get_a());
+
+    // Determine whether the ray is at least within the bounding box for sanity and validity
+    if (within_bounding_box(to_return, m_list_coordinates)) {
+        to_return = Coordinate(std::vector<double>{__DBL_MIN__, __DBL_MIN__, __DBL_MIN__}); 
+        return to_return;
+    }
+
     return to_return;
 }
 
-bool Object::min(const Coordinate& to_check, const Coordinate& min_bounds) const{
-    // This function determines whether the coordinate specified is within bounds of
-    // all three coordinates provided by the triangle, by specifically checking to
-    // see whether the coordinate to check is >= to min_bounds for each axis.
+bool Object::within_plane(Coordinate& input_ray_intersection, 
+                            std::vector<Coordinate> list_coordinates){
+    // This funciton will simply determine whether the input_plane and the lines
+    // found will be on the same side. If it isn't the information should not be taken to heart
+    Coordinate line_t2_t3, line_t1_t3, line_t1_t2;
+    double c_t2_t3, c_t1_t3, c_t1_t2;
     bool result = true;
 
-    // See if the coordinate is within bounds
-    if (to_check.get_x() < min_bounds.get_x()){
+    // Calculate the 
+    line_t2_t3 = Coordinate(list_coordinates.at(1)) - Coordinate(list_coordinates.at(2));
+    
+
+    // Calculat the
+    line_t1_t3 = Coordinate(list_coordinates.at(0)) - Coordinate(list_coordinates.at(2));
+
+
+    // Calculate the 
+    line_t1_t2 = Coordinate(list_coordinates.at(0)) - Coordinate(list_coordinates.at(1));
+
+    return result;
+}
+
+bool Object::within_bounding_box(Coordinate& input_ray_intersection, std::vector<Coordinate> list_coordinates) {
+    // This function will obtain the minimum and maximum values for the inherent
+    // coordinates and determine whether the input plane is at least within the
+    // bounding box of the triangle
+    double min_x = 0, min_y = 0, min_z = 0, max_x = 0, max_y = 0, max_z = 0;
+    bool result = true;
+
+    // Find the minimum values
+    min_x = get_min_value(list_coordinates.at(0).get_x(), list_coordinates.at(1).get_x(), list_coordinates.at(2).get_x());
+    min_y = get_min_value(list_coordinates.at(0).get_y(), list_coordinates.at(1).get_y(), list_coordinates.at(2).get_y());
+    min_z = get_min_value(list_coordinates.at(0).get_z(), list_coordinates.at(1).get_z(), list_coordinates.at(2).get_z());
+
+    // Find the maximum values
+    max_x = get_max_value(list_coordinates.at(0).get_x(), list_coordinates.at(1).get_x(), list_coordinates.at(2).get_x());
+    max_y = get_max_value(list_coordinates.at(0).get_y(), list_coordinates.at(1).get_y(), list_coordinates.at(2).get_y());
+    max_z = get_max_value(list_coordinates.at(0).get_z(), list_coordinates.at(1).get_z(), list_coordinates.at(2).get_z());
+
+    // Determine whether the plane is within the bounding box
+    // Within bounds for x
+    if ((min_x > input_ray_intersection.get_x()) || (max_x < input_ray_intersection.get_x())) {
         result = false;
         return result;
     }
 
-    if (to_check.get_y() < min_bounds.get_y()) {
+    // Within bounds for y
+    if ((min_y > input_ray_intersection.get_y()) || (max_y < input_ray_intersection.get_y())) {
         result = false;
         return result;
     }
 
-    if (to_check.get_z() < min_bounds.get_z()) {
+    // Within bounds for z
+    if ((min_z > input_ray_intersection.get_z()) || (max_z < input_ray_intersection.get_z())) {
         result = false;
         return result;
     }
@@ -187,73 +255,7 @@ bool Object::min(const Coordinate& to_check, const Coordinate& min_bounds) const
     return result;
 }
 
-bool Object::max(const Coordinate& to_check, const Coordinate& max_bounds) const{
-    // This function determines whether the coordinate specified is within bounds of
-    // all three coordinates provided by the triangle, by specifically checking to
-    // see whether the coordinate to check is <= to max_bounds for each axis.
-    bool result = true;
-
-    // See if the coordinate is within bounds
-    if (to_check.get_x() >= max_bounds.get_x()){
-        result = false;
-        return result;
-    }
-
-    if (to_check.get_y() >= max_bounds.get_y()) {
-        result = false;
-        return result;
-    }
-
-    if (to_check.get_z() >= max_bounds.get_z()) {
-        result = false;
-        return result;
-    }
-
-    return result;   
-}
-
-Coordinate& Object::get_max_coordinate() {
-    // This function will only look at the values within the
-    // vector and find the max coordinates for each x,y, and z axes.
-    static Coordinate max;
-
-    // Obtain the coordinates as necessary only if equal to the required amount
-    if(m_list_coordinates.size() != MAX_REQUIRED_COORDINATES) {
-        std::cerr << "ERROR: Object::get_min_coordinate() total coordinates exceed " 
-                    << MAX_REQUIRED_COORDINATES << std::endl;
-        exit(1);
-    }    
-
-    // Check the coordinates and obtain the one with the minimum values for each coordinate
-    max.set_x(get_max_value(m_list_coordinates.at(0).get_x(), m_list_coordinates.at(1).get_x(), m_list_coordinates.at(2).get_x()));
-    max.set_y(get_max_value(m_list_coordinates.at(0).get_y(), m_list_coordinates.at(1).get_y(), m_list_coordinates.at(2).get_y()));
-    max.set_z(get_max_value(m_list_coordinates.at(0).get_z(), m_list_coordinates.at(1).get_z(), m_list_coordinates.at(2).get_z()));
-    max.set_k(get_max_value(m_list_coordinates.at(0).get_k(), m_list_coordinates.at(1).get_k(), m_list_coordinates.at(2).get_k()));
-
-    return max;
-}
-
-Coordinate& Object::get_min_coordinate() {
-    // This function will only look at the values within the
-    // vector and find the min coordinates for each x,y, and z axes.
-    static Coordinate min;
-
-    // Obtain the coordinates as necessary only if equal to the required amount
-    if(m_list_coordinates.size() != MAX_REQUIRED_COORDINATES) {
-        std::cerr << "ERROR: Object::get_min_coordinate() total coordinates exceed " 
-                    << MAX_REQUIRED_COORDINATES << std::endl;
-        exit(1);
-    }    
-
-    // Check the coordinates and obtain the one with the minimum values for each coordinate
-    min.set_x(get_min_value(m_list_coordinates.at(0).get_x(), m_list_coordinates.at(1).get_x(), m_list_coordinates.at(2).get_x()));
-    min.set_y(get_min_value(m_list_coordinates.at(0).get_y(), m_list_coordinates.at(1).get_y(), m_list_coordinates.at(2).get_y()));
-    min.set_z(get_min_value(m_list_coordinates.at(0).get_z(), m_list_coordinates.at(1).get_z(), m_list_coordinates.at(2).get_z()));
-    min.set_k(get_min_value(m_list_coordinates.at(0).get_k(), m_list_coordinates.at(1).get_k(), m_list_coordinates.at(2).get_k()));
-
-    return min;
-}
-
+// Tested
 double Object::get_max_value(double x, double y, double z) {
     // This function simply tests each value against the next to find the maximum
     double max = __DBL_MIN__;
@@ -272,6 +274,7 @@ double Object::get_max_value(double x, double y, double z) {
     return max;
 }
 
+// Tested
 double Object::get_min_value(double x, double y, double z) {
     // This function simply tests each value against the next to find the minimum
     double min = __DBL_MAX__;
