@@ -1,3 +1,4 @@
+#! /bin/bash
 ##-------------------------------------------------------------------------------------------------
 ## HEADER INFORMATION
 ##-------------------------------------------------------------------------------------------------
@@ -9,5 +10,5 @@ EXEC_FILENAME=(`cat $SOURCE_FILENAME`)
 EXEC_FILENAME=${EXEC_FILENAME}
 
 ## Change directory to execute the file
-cd build/tests
+cd build/tests/
 ./${EXEC_FILENAME}_tests
