@@ -44,6 +44,8 @@ class Coordinate  {
 			std::vector<double> get_plane() const;
 			std::vector<uint16_t> get_colour() const;
 
+			bool is_valid() const;
+
 		// Setters
 			void set_x(double value);
 			void set_y(double value);
@@ -61,6 +63,8 @@ class Coordinate  {
 			bool set_coordinate(double x = 0, double y = 0, double z = 0);
 			bool set_colour(uint16_t red = 0, uint16_t green = 0, uint16_t blue = 0, uint16_t alpha = 0);
 			bool set_plane(double x, double y, double z, double k);
+
+			void set_valid(bool con = true);
 
 		// Other
 			Coordinate& scalar_multiply(double scalar_multiplication);
@@ -83,7 +87,7 @@ class Coordinate  {
 		uint16_t m_b;	// The value of blue in RGBA
 		uint16_t m_a;	// The value of alpha in RGBA
 
-		//bool is_valid;
+		bool m_is_valid;	// Sets up whether the vector is valid or not
 
 		static const uint16_t MAX_COLOUR_VALUE;
 		static const uint16_t MIN_COLOUR_VALUE;

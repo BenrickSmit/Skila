@@ -14,6 +14,7 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
+#include <cfloat>
 
 #include "Coordinate.h"
 

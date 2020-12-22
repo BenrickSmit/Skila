@@ -9,6 +9,7 @@ Coordinate::Coordinate(){
     // Init the Default Coordinates to 000 and colour to 000255
     set_coordinate(0,0,0);
     set_colour(0,0,0,255);
+    set_valid();
 }
 
 //Tested
@@ -16,12 +17,14 @@ Coordinate::Coordinate(double x, double y, double z){
     // Init the Default Coordinates to 000 and colour to 000255
     set_coordinate(x,y,z);
     set_colour(0,0,0,255);
+    set_valid();
 }
 
 //Tested
 Coordinate::Coordinate(uint16_t red, uint16_t green, uint16_t blue, uint16_t alpha){
     set_coordinate(0,0,0);
     set_colour(red, green, blue, alpha);
+    set_valid();
 }
 
 //Tested
@@ -29,6 +32,7 @@ Coordinate::Coordinate(double x, double y, double z, uint16_t red, uint16_t gree
                         uint16_t blue, uint16_t alpha){
     set_coordinate(x, y, z);
     set_colour(red, green, blue, alpha);
+    set_valid();
 }
 
 //Tested
@@ -195,6 +199,10 @@ std::vector<uint16_t> Coordinate::get_colour() const {
     return std::vector<uint16_t>({m_r, m_g, m_b, m_a});
 }
 
+bool Coordinate::is_valid() const {
+    return m_is_valid;
+}
+
 //Tested
 bool Coordinate::set_coordinate(double x, double y, double z) {
     set_x(x);
@@ -243,6 +251,10 @@ Coordinate& Coordinate::scalar_multiply(double scalar_multiplication) {
     result.set_k(get_k() * scalar_multiplication);
 
     return result;
+}
+
+void Coordinate::set_valid(bool con) {
+    m_is_valid = con;
 }
 
 bool Coordinate::operator==(const Coordinate &rhs) const{

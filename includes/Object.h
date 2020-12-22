@@ -14,9 +14,11 @@
 #include <iostream>
 #include <stdint.h>
 #include <cmath>
+#include <cfloat>
 
 #include "Coordinate.h"
 #include "MatrixOperations.h"
+
 
 class Object  {
 	public:

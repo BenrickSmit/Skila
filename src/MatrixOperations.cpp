@@ -116,7 +116,7 @@ double MatrixOperations::get_max_value(double x, double y, double z) {
 // Tested
 double MatrixOperations::get_min_value(double x, double y, double z) {
     // This function simply tests each value against the next to find the minimum
-    double min = ;
+    double min = FLT_MAX;
 
     // Determine which is bigger, x or y
     min = x;

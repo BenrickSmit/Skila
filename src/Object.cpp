@@ -134,6 +134,7 @@ Coordinate Object::get_ray_intersection(Coordinate& input_plane,
         // IN the case that lambda is negative, it means that the intersection
         // point is behind the camera, and thus not necessary
         to_return = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
+        to_return.set_valid(false);
         return to_return;
     }
 
@@ -154,6 +155,7 @@ Coordinate Object::get_ray_intersection(Coordinate& input_plane,
     // Determine whether the ray is at least within the bounding box for sanity and validity
     if (!MatrixOperations::within_bounding_box(to_return, m_list_coordinates)) {
         to_return = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
+        to_return.set_valid(false);
         return to_return;
     }
 
