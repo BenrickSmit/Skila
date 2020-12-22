@@ -24,19 +24,19 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, get_min_value_OneTwoMinusTwo_ReturnXMinusTwo)
 TEST(TEST_MATRIX_OPERATIONS_SUITE, get_max_value_OneTwoMinusTwo_ReturnZTwo) {
 	double x{ 1 }, y{ -2 }, z{ 2 };
 	double expected_result = 2;
-	EXPECT_EQ(MatrixOperations::get_min_value(x, y, z), expected_result);
+	EXPECT_EQ(MatrixOperations::get_max_value(x, y, z), expected_result);
 }
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, get_max_value_OneTwoMinusTwo_ReturnYTwo) {
 	double x{ 1 }, y{ 2 }, z{ -2 };
 	double expected_result = 2;
-	EXPECT_EQ(MatrixOperations::get_min_value(x, y, z), expected_result);
+	EXPECT_EQ(MatrixOperations::get_max_value(x, y, z), expected_result);
 }
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, get_max_value_OneTwoMinusTwo_ReturnXTwo) {
 	double x{ 2 }, y{ 1 }, z{ -2 };
 	double expected_result = 2;
-	EXPECT_EQ(MatrixOperations::get_min_value(x, y, z), expected_result);
+	EXPECT_EQ(MatrixOperations::get_max_value(x, y, z), expected_result);
 }
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, dot_product_NineTwoSevenAndFourEightTenInput_ReturnHundredTwentyTwo) {

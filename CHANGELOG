@@ -20,6 +20,11 @@
 ~ Add Ray Intersection Calculations for Ray Tracing
 ~ Add Min/Max functions for Ray bounds testing
 
+22/12/2020:
+===========
+~ Add gitattributes file to ensure cross-platform development on Windows and Linux
+~ Fixed the test cases for Matrix Operations
+
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.
