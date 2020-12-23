@@ -26,6 +26,7 @@ public:
     static bool within_bounding_box(Coordinate& input_ray_intersection, std::vector<Coordinate> list_coordinates);
     static double get_min_value(double x, double y, double z);
     static double get_max_value(double x, double y, double z);
+    static Coordinate& subtract(Coordinate& lhs, Coordinate& rhs);
 private:
     // Not really required
 };

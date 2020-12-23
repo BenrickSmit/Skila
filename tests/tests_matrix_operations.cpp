@@ -57,3 +57,20 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, dot_product_SixMinusOneThreeAndFourEighteenMi
 	EXPECT_EQ(expected_result, MatrixOperations::dot_product(x, y));
 }
 
+TEST(TEST_MATRIX_OPERATIONS_SUITE, subtract_SevenMinusMinusSeven_ReturnFourteen) {
+	Coordinate x{7,7,7}, y{-7,-7,-7};
+	Coordinate expected_result{14,14,14};
+	EXPECT_EQ(expected_result, MatrixOperations::subtract(x,y));
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, subtract_SevenMinusSeven_ReturnZero) {
+	Coordinate x{7,7,7}, y{7,7,7};
+	Coordinate expected_result{0,0,0};
+	EXPECT_EQ(expected_result, MatrixOperations::subtract(x,y));
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, subtract_SevenMinusZero_ReturnSeven) {
+	Coordinate x{7,7,7}, y{0,0,0};
+	Coordinate expected_result{7,7,7};
+	EXPECT_EQ(expected_result, MatrixOperations::subtract(x,y));
+}

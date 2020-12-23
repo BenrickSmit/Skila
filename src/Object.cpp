@@ -153,11 +153,22 @@ Coordinate Object::get_ray_intersection(Coordinate& input_plane,
     to_return.set_a(input_plane.get_a());
 
     // Determine whether the ray is at least within the bounding box for sanity and validity
+    // PS: A quick Sanity Check
     if (!MatrixOperations::within_bounding_box(to_return, m_list_coordinates)) {
         to_return = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
         to_return.set_valid(false);
         return to_return;
     }
+
+    // Determine whether the ray actually intersects the plane
+    if (!MatrixOperations::within_plane(to_return, m_list_coordinates)){
+        to_return = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN});
+        to_return.set_valid(false);
+        return to_return;
+    }
+
+    // The ray is valid in all other cases, so set it as such
+    to_return.set_valid(true);
 
     // Do something with the actual ray and the intersection
 

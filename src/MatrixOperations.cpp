@@ -38,19 +38,47 @@ bool MatrixOperations::within_plane(Coordinate& input_ray_intersection,
     // This funciton will simply determine whether the input_plane and the lines
     // found will be on the same side. If it isn't the information should not be taken to heart
     Coordinate line_t2_t3, line_t1_t3, line_t1_t2;
+    Coordinate t1, t2, t3;
+    Coordinate a, b;
     double c_t2_t3, c_t1_t3, c_t1_t2;
     bool result = true;
 
-    // Calculate the 
-    line_t2_t3 = Coordinate(list_coordinates.at(1)) - Coordinate(list_coordinates.at(2));
+    t1 = static_cast<Coordinate&>(list_coordinates.at(0));
+    t2 = static_cast<Coordinate&>(list_coordinates.at(1));
+    t3 = static_cast<Coordinate&>(list_coordinates.at(2));
 
+    // Calculate whether the intersection is within/on the triangle
+    line_t2_t3 = t2 - t3;
+    a = cross_product(line_t2_t3, subtract(input_ray_intersection, t3));
+    b = cross_product(line_t2_t3, subtract(t1, t3));
+    c_t2_t3 = dot_product(a,b);
+
+    if (c_t2_t3 <= 0){
+        result = false;
+        return result;
+    }
 
     // Calculat the
-    line_t1_t3 = Coordinate(list_coordinates.at(0)) - Coordinate(list_coordinates.at(2));
+    line_t1_t3 = t1 - t3;
+    a = cross_product(line_t1_t3, subtract(input_ray_intersection, t3));
+    b = cross_product(line_t1_t3, subtract(t2, t3));
+    c_t1_t3 = dot_product(a,b);
 
+    if (c_t1_t3 <= 0){
+        result = false;
+        return result;
+    }
 
     // Calculate the 
-    line_t1_t2 = Coordinate(list_coordinates.at(0)) - Coordinate(list_coordinates.at(1));
+    line_t1_t2 = t1 - t2;
+    a = cross_product(line_t1_t2, subtract(input_ray_intersection, t2));
+    b = cross_product(line_t1_t2, subtract(t3, t2));
+    c_t1_t2 = dot_product(a,b);
+
+    if (c_t1_t2 <= 0){
+        result = false;
+        return result;
+    }
 
     return result;
 }
@@ -111,6 +139,18 @@ double MatrixOperations::get_max_value(double x, double y, double z) {
     }
 
     return max;
+}
+
+// Tested
+Coordinate& MatrixOperations::subtract(Coordinate& lhs, Coordinate& rhs) {
+    static Coordinate result;
+
+    result.set_x(lhs.get_x() - rhs.get_x());
+    result.set_y(lhs.get_y() - rhs.get_y());
+    result.set_z(lhs.get_z() - rhs.get_z());
+    result.set_k(lhs.get_k() - rhs.get_k());
+
+    return result;
 }
 
 // Tested
