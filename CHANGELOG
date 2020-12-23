@@ -25,6 +25,10 @@
 ~ Add gitattributes file to ensure cross-platform development on Windows and Linux
 ~ Fixed the test cases for Matrix Operations
 
+23/12/2020:
+===========
+~ Separate All Matrix Operations and Ray Tracing Operations into MatrixOperations.h
+
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.

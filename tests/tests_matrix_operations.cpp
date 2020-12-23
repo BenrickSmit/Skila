@@ -2,6 +2,7 @@
 
 #include "Coordinate.h"
 #include "MatrixOperations.h"
+#include "Object.h"
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, get_min_value_OneTwoMinusTwo_ReturnZMinusTwo) {
 	double x{1}, y{2}, z{-2};
@@ -73,4 +74,31 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, subtract_SevenMinusZero_ReturnSeven) {
 	Coordinate x{7,7,7}, y{0,0,0};
 	Coordinate expected_result{7,7,7};
 	EXPECT_EQ(expected_result, MatrixOperations::subtract(x,y));
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOnPlaneInput_ReturnLambdaBiggerThanEqualZero) {
+	Coordinate x{-1,0,2},y{1,0,2},z{0,-3,3};
+	// the test view plane is a 5x5 grid, 2.2.1 is in the middle
+	Coordinate view_plane_m{0.1*(2-2),0.1*(2-2),1}, camera_position_ray_origin{0,-1,-1};
+	Coordinate input_plane;
+
+	Object triangle;
+	triangle.add_triangle(x,y,z);
+	triangle.calculate_vector_plane();
+	input_plane = triangle.get_plane();
+	EXPECT_GE(MatrixOperations::get_ray_lambda(input_plane, camera_position_ray_origin, view_plane_m), 0);
+}
+
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOutsidePlaneInput_ReturnLambdaLessThanZero) {
+	Coordinate x{-1,0,2},y{1,0,2},z{0,-3,3};
+	// the test view plane is a 5x5 grid, 4.4.1 is in the middle
+	Coordinate view_plane_m{0.1*(4-2),0.1*(4-2),1}, camera_position_ray_origin{0,-1,-1};
+	Coordinate input_plane;
+
+	Object triangle;
+	triangle.add_triangle(x,y,z);
+	triangle.calculate_vector_plane();
+	input_plane = triangle.get_plane();
+	EXPECT_LT(MatrixOperations::get_ray_lambda(input_plane, camera_position_ray_origin, view_plane_m), 0);
 }

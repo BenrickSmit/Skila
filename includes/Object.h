@@ -38,12 +38,7 @@ class Object  {
         // Others
         void calculate_object_normal();
         void calculate_vector_plane();
-        double get_ray_lambda(Coordinate& input_plane, 
-                                    Coordinate& ray_origin,
-                                    Coordinate& view_plane);
-        Coordinate get_ray_intersection(Coordinate& input_plane,
-                                                Coordinate& ray_origin,
-                                                Coordinate& view_plane);
+        
 	private:
         //bool is_triangle;
         Coordinate m_object_normal;

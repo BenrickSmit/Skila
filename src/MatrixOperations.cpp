@@ -153,6 +153,90 @@ Coordinate& MatrixOperations::subtract(Coordinate& lhs, Coordinate& rhs) {
     return result;
 }
 
+double MatrixOperations::get_ray_lambda(Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane) {
+    double lambda_to_return = 0.0;
+
+    // The intersection of the ray (lambda) is calculated by using the input plane's x,y,z
+    // values, the origin of the ray (camera), and the view plane (about 1m away from the camera).
+    // the view plane uses the following formula for calculation
+    // ((size_of_pixel_in_meters)*(x_pixel_position - half_total_pixels),
+    // (size_of_pixel_in_meters)*(y_pixel_position - half_total_pixels), 
+    // (size_of_pixel_in_meters)*(z_pixel_position - half_total_pixels))
+
+    double numerator = -1 * (MatrixOperations::dot_product(input_plane, ray_origin) + input_plane.get_k());
+    double denominator = MatrixOperations::dot_product(input_plane, view_plane);
+
+    // A sanity check for division by 0
+    if (denominator == 0) {
+        lambda_to_return = -1.0;
+        return lambda_to_return;
+    }
+    // A sanity check for 0 divided by something
+    if (numerator == 0) {
+        lambda_to_return = 0.0;
+        return lambda_to_return;
+    }
+
+    // Calculate the actual lambda as necessary
+    lambda_to_return = numerator / denominator;
+
+    std::cout << ">> input_plane.k:          " << input_plane.get_k() << std::endl;
+    std::cout << ">> input_plane.ray_origin: " << MatrixOperations::dot_product(input_plane,ray_origin) << std::endl;
+    std::cout << ">> input_plane.view_plane: " << MatrixOperations::dot_product(input_plane, view_plane) << std::endl;
+
+    return lambda_to_return;
+}
+
+bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane, std::vector<Coordinate> list_coordinates) {
+    // Get the value of lambda to calculate the coordinate of intersection between
+    // the ray from the view_plane to the object itself
+    double lambda = get_ray_lambda(input_plane, ray_origin, view_plane);
+
+    if(lambda < 0){
+        // IN the case that lambda is negative, it means that the intersection
+        // point is behind the camera, and thus not necessary
+        result = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
+        result.set_valid(false);
+        return result.is_valid();
+    }
+
+    result.set_x((lambda*view_plane.get_x()) + ray_origin.get_x());
+    result.set_y((lambda*view_plane.get_y()) + ray_origin.get_y());
+    result.set_z((lambda*view_plane.get_z()) + ray_origin.get_z());
+    result.set_k(0);
+
+    // Set the colour of the plane based on the point used.
+    // This can be used in the future to help with refraction and reflection,
+    // even transparent materials
+    // \todo: add in colour transparency, reflection, refraction, etc.
+    result.set_r(input_plane.get_r());
+    result.set_g(input_plane.get_g());
+    result.set_b(input_plane.get_b());
+    result.set_a(input_plane.get_a());
+
+    // Determine whether the ray is at least within the bounding box for sanity and validity
+    // PS: A quick Sanity Check
+    if (!MatrixOperations::within_bounding_box(result, list_coordinates)) {
+        result = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN}); 
+        result.set_valid(false);
+        return result.is_valid();
+    }
+
+    // Determine whether the ray actually intersects the plane
+    if (!MatrixOperations::within_plane(result, list_coordinates)){
+        result = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN});
+        result.set_valid(false);
+        return result.is_valid();
+    }
+
+    // The ray is valid in all other cases, so set it as such
+    result.set_valid(true);
+
+    // Do something with the actual ray and the intersection
+
+    return result.is_valid();
+}
+
 // Tested
 double MatrixOperations::get_min_value(double x, double y, double z) {
     // This function simply tests each value against the next to find the minimum

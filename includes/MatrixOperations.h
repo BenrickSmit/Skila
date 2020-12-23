@@ -27,6 +27,8 @@ public:
     static double get_min_value(double x, double y, double z);
     static double get_max_value(double x, double y, double z);
     static Coordinate& subtract(Coordinate& lhs, Coordinate& rhs);
+    static double get_ray_lambda(Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane);
+    static bool get_ray_intersection(Coordinate& result, Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane, std::vector<Coordinate> list_coordinates);
 private:
     // Not really required
 };
