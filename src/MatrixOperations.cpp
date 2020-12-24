@@ -237,6 +237,36 @@ bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& inpu
     return result.is_valid();
 }
 
+Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
+    // Making sure bigger angles can be used
+    if (angle > 360){
+        angle = std::fmod(angle, 360.0);
+    }
+
+    static Coordinate result;
+
+    result.set_x(input.get_x());
+    result.set_y((input.get_y() * cos(angle)) - (input.get_z() * sin(angle)));
+    result.set_z((input.get_y() * sin(angle)) - (input.get_z() * cos(angle)));
+
+    return result;
+}
+
+Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
+    // Making sure bigger angles can be used
+    if (angle > 360){
+        angle = std::fmod(angle, 360.0);
+    }
+
+    static Coordinate result;
+
+    result.set_x((input.get_x() * cos(angle)) + (input.get_z() * sin(angle)));
+    result.set_y(input.get_y());
+    result.set_z((-1* input.get_x() * sin(angle)) + (input.get_z() * cos(angle)));
+
+    return result;
+}
+
 // Tested
 double MatrixOperations::get_min_value(double x, double y, double z) {
     // This function simply tests each value against the next to find the minimum

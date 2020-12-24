@@ -29,6 +29,8 @@ public:
     static Coordinate& subtract(Coordinate& lhs, Coordinate& rhs);
     static double get_ray_lambda(Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane);
     static bool get_ray_intersection(Coordinate& result, Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane, std::vector<Coordinate> list_coordinates);
+    static Coordinate& rotate_x(Coordinate& input, double angle);
+    static Coordinate& rotate_y(Coordinate& input, double angle);
 private:
     // Not really required
 };
