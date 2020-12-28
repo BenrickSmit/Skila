@@ -139,9 +139,9 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndZeroDecimalsInput
 }
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndTwoDecimalsInput_ReturnTwoPointThreeFive) {
-	EXPECT_EQ(MatrixOperations::round(2.3456789,2), 2);
+	EXPECT_EQ(MatrixOperations::round(2.3456789,2), 2.35);
 }
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndFourDecimalsInput_ReturnTwoPointThreeFourFiveSeven) {
-	EXPECT_EQ(MatrixOperations::round(2.3456789), 2);
+	EXPECT_EQ(MatrixOperations::round(2.3456789), 2.3457);
 }
