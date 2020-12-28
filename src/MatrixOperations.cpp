@@ -156,7 +156,7 @@ Coordinate& MatrixOperations::subtract(Coordinate& lhs, Coordinate& rhs) {
 }
 
 double MatrixOperations::get_ray_lambda(Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane) {
-    double lambda_to_return = 0.0;
+    double lambda_to_return = -1.0;
 
     // The intersection of the ray (lambda) is calculated by using the input plane's x,y,z
     // values, the origin of the ray (camera), and the view plane (about 1m away from the camera).
@@ -239,7 +239,7 @@ bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& inpu
     return result.is_valid();
 }
 
-// Most Important - find arbitrary function for matrix rotation
+// Tested
 Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
     // Making sure bigger angles can be used
     if (angle > 360){
@@ -255,6 +255,7 @@ Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
     return result;
 }
 
+// Tested
 Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
     // Making sure bigger angles can be used
     if (angle > 360){
@@ -263,11 +264,6 @@ Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-// 2, -4, 3
-// x:  + (3)
-// y: -4
-// z: (-1 * 2) + 
-
     result.set_x(round((input.get_x() * std::cos(to_radians(angle))) + (input.get_z() * std::sin(to_radians(angle)))));
     result.set_y(round(input.get_y()));
     result.set_z(round((-1* input.get_x() * std::sin(to_radians(angle))) + (input.get_z() * std::cos(to_radians(angle)))));
@@ -275,6 +271,7 @@ Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
     return result;
 }
 
+// Tested
 Coordinate& MatrixOperations::rotate_z(Coordinate& input, double angle) {
     // Making sure bigger angles can be used
     if (angle > 360){
@@ -302,6 +299,7 @@ double MatrixOperations::round(double input, int decimals) {
     return floor(input*decimal_factor+0.5)/decimal_factor;
 }
 
+// Tested - Indirectly
 double MatrixOperations::to_radians(double input_angle) {
     // This function takes in a degree value, and returns the value in radians,
     // since c++'s internal std::cos(), std::sin(), etc, use radians rather than
