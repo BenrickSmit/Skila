@@ -31,6 +31,8 @@ public:
     static bool get_ray_intersection(Coordinate& result, Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane, std::vector<Coordinate> list_coordinates);
     static Coordinate& rotate_x(Coordinate& input, double angle);
     static Coordinate& rotate_y(Coordinate& input, double angle);
+    static Coordinate& rotate_z(Coordinate& input, double angle);
+    static double round(double input, int decimals = 4);
 private:
     // Not really required
 };

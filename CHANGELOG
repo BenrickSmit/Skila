@@ -29,6 +29,11 @@
 ===========
 ~ Separate All Matrix Operations and Ray Tracing Operations into MatrixOperations.h
 
+28/12/2020:
+===========
+~ Added Rorate along the z-axis
+~ Added custom round function as std::round rounded to integers, which I didn't particularly enjoy
+
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.

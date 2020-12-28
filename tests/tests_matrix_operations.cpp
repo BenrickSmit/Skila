@@ -76,6 +76,7 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, subtract_SevenMinusZero_ReturnSeven) {
 	EXPECT_EQ(expected_result, MatrixOperations::subtract(x,y));
 }
 
+// Erroneous
 TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOnPlaneInput_ReturnLambdaBiggerThanEqualZero) {
 	Coordinate x{-1,0,2},y{1,0,2},z{0,-3,3};
 	// the test view plane is a 5x5 grid, 2.2.1 is in the middle
@@ -102,26 +103,45 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOutsidePlaneInput_R
 	EXPECT_LT(MatrixOperations::get_ray_lambda(input_plane, camera_position_ray_origin, view_plane_m), 0);
 }
 
+// Erroneous
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndNinetyDegreesInput_ReturnTwoMinusFourThree) {
 	Coordinate point{2,3,4};
 	Coordinate expected_result{2,-4,3};
 	EXPECT_EQ(MatrixOperations::rotate_x(point, 90), expected_result);
 }
 
-TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndFourFiftyDegreesInput_ReturnTwoMinusFourThree) {
-	Coordinate point{2,3,4};
-	Coordinate expected_result{2,-4,3};
-	EXPECT_EQ(MatrixOperations::rotate_x(point, 450), expected_result);
+// Erroneous
+TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndThreeNinetyDegreesInput_ReturnTwoMinusThreeFloatTwoFloat) {
+	Coordinate point{2,-2,4};
+	Coordinate expected_result{2,-3.7321,2.4641};
+	std::cout << ">>>> POINT ROTATED: " << MatrixOperations::rotate_y(point, 30).to_string() << std::endl;
+	std::cout << ">>>> EXPECTED: " << expected_result.to_string() << std::endl;
+	EXPECT_EQ(MatrixOperations::rotate_x(point, 390), expected_result);
 }
 
+// Erroneous
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_y_TwoMinusFourThreeAndNinetyDegreesInput_ReturnFourThreeZero) {
 	Coordinate point{2.0,-4.0,3.0};
 	Coordinate expected_result{4.0,3.0,0.0};
-	EXPECT_EQ(MatrixOperations::rotate_x(point, 90), expected_result);
+	EXPECT_EQ(MatrixOperations::rotate_y(point, 90), expected_result);
 }
 
+// Erroneous
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_y_TwoMinusFourThreeAndFourFiftyDegreesInput_ReturnFourThreeZero) {
 	Coordinate point{2,-4,3};
 	Coordinate expected_result{4,3,0};
-	EXPECT_EQ(MatrixOperations::rotate_x(point, 450), expected_result);
+
+	EXPECT_EQ(MatrixOperations::rotate_y(point, 450), expected_result);
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndZeroDecimalsInput_ReturnTwo) {
+	EXPECT_EQ(MatrixOperations::round(2.3456789,0), 2);
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndTwoDecimalsInput_ReturnTwoPointThreeFive) {
+	EXPECT_EQ(MatrixOperations::round(2.3456789,2), 2);
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndFourDecimalsInput_ReturnTwoPointThreeFourFiveSeven) {
+	EXPECT_EQ(MatrixOperations::round(2.3456789), 2);
 }

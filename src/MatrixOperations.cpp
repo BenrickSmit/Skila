@@ -237,6 +237,7 @@ bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& inpu
     return result.is_valid();
 }
 
+// Most Important - find arbitrary function for matrix rotation
 Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
     // Making sure bigger angles can be used
     if (angle > 360){
@@ -245,9 +246,9 @@ Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(input.get_x());
-    result.set_y((input.get_y() * cos(angle)) - (input.get_z() * sin(angle)));
-    result.set_z((input.get_y() * sin(angle)) - (input.get_z() * cos(angle)));
+    result.set_x(std::round((input.get_x() * std::cos(angle)) - (input.get_y() * std::sin(angle))));
+    result.set_y(std::round((input.get_x() * std::sin(angle)) + (input.get_y()*std::cos(angle))));
+    result.set_z(std::round(input.get_z()));
 
     return result;
 }
@@ -260,11 +261,37 @@ Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x((input.get_x() * cos(angle)) + (input.get_z() * sin(angle)));
-    result.set_y(input.get_y());
-    result.set_z((-1* input.get_x() * sin(angle)) + (input.get_z() * cos(angle)));
+    result.set_x(std::round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
+    result.set_y(std::round(input.get_y()));
+    result.set_z(std::round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
 
     return result;
+}
+
+Coordinate& MatrixOperations::rotate_z(Coordinate& input, double angle) {
+    // Making sure bigger angles can be used
+    if (angle > 360){
+        angle = std::fmod(angle, 360.0);
+    }
+
+    static Coordinate result;
+
+    result.set_x(std::round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
+    result.set_y(std::round(input.get_y()));
+    result.set_z(std::round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
+
+    return result;
+}
+
+double MatrixOperations::round(double input, int decimals) {
+    int decimal_factor = 1;
+
+    // Depending on the number of decimals times decimals by ten
+    for(auto i = 0; i < decimals; i++){
+        decimal_factor *= 10;
+    }
+
+    return floor(input*decimal_factor+0.5)/decimal_factor;
 }
 
 // Tested

@@ -277,6 +277,18 @@ Coordinate Coordinate::operator-(const Coordinate & rhs) {
     return result;
 }
 
+std::string Coordinate::to_string() const{
+    std::string to_return = "";
+
+    to_return += "x: " + std::to_string(get_x());
+    to_return += ", y: " + std::to_string(get_y());
+    to_return += ", z: " + std::to_string(get_z());
+    to_return += ", k: " + std::to_string(get_k());
+    to_return += "; \n";
+
+    return to_return;
+}
+
 Coordinate Coordinate::operator+(const Coordinate & rhs) {
     Coordinate result;
 

@@ -72,6 +72,8 @@ class Coordinate  {
 			bool operator!=(const Coordinate &rhs) const;
 			Coordinate operator-(const Coordinate & rhs);
 			Coordinate operator+(const Coordinate & rhs);
+
+			std::string to_string() const;
 	protected:
 
 
