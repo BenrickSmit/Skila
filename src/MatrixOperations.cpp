@@ -246,9 +246,9 @@ Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(std::round((input.get_x() * std::cos(angle)) - (input.get_y() * std::sin(angle))));
-    result.set_y(std::round((input.get_x() * std::sin(angle)) + (input.get_y()*std::cos(angle))));
-    result.set_z(std::round(input.get_z()));
+    result.set_x(round((input.get_x() * std::cos(angle)) - (input.get_y() * std::sin(angle))));
+    result.set_y(round((input.get_x() * std::sin(angle)) + (input.get_y()*std::cos(angle))));
+    result.set_z(round(input.get_z()));
 
     return result;
 }
@@ -261,9 +261,9 @@ Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(std::round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
-    result.set_y(std::round(input.get_y()));
-    result.set_z(std::round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
+    result.set_x(round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
+    result.set_y(round(input.get_y()));
+    result.set_z(round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
 
     return result;
 }
@@ -276,13 +276,14 @@ Coordinate& MatrixOperations::rotate_z(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(std::round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
-    result.set_y(std::round(input.get_y()));
-    result.set_z(std::round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
+    result.set_x(round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
+    result.set_y(round(input.get_y()));
+    result.set_z(round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
 
     return result;
 }
 
+// Tested
 double MatrixOperations::round(double input, int decimals) {
     int decimal_factor = 1;
 

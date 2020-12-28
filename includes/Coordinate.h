@@ -11,6 +11,7 @@
 
 #pragma once
 
+#include <cmath>
 #include <vector>
 #include <inttypes.h>
 #include <iostream>
@@ -74,6 +75,7 @@ class Coordinate  {
 			Coordinate operator+(const Coordinate & rhs);
 
 			std::string to_string() const;
+			Coordinate get_rounded() const;
 	protected:
 
 

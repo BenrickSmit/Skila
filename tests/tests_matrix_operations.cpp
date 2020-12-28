@@ -114,8 +114,6 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndNinetyDegreesInput_Re
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndThreeNinetyDegreesInput_ReturnTwoMinusThreeFloatTwoFloat) {
 	Coordinate point{2,-2,4};
 	Coordinate expected_result{2,-3.7321,2.4641};
-	std::cout << ">>>> POINT ROTATED: " << MatrixOperations::rotate_y(point, 30).to_string() << std::endl;
-	std::cout << ">>>> EXPECTED: " << expected_result.to_string() << std::endl;
 	EXPECT_EQ(MatrixOperations::rotate_x(point, 390), expected_result);
 }
 
@@ -132,6 +130,16 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_y_TwoMinusFourThreeAndFourFiftyDegrees
 	Coordinate expected_result{4,3,0};
 
 	EXPECT_EQ(MatrixOperations::rotate_y(point, 450), expected_result);
+}
+
+TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_z_OneZeroZeroAndNinetyDegreesInput_ReturnZeroOneZero) {
+	Coordinate point{1,0,0};
+	Coordinate expected_result{0,1,0};
+
+	std::cout << ">>>> POINT ROTATED: " << MatrixOperations::rotate_z(point, 30).to_string() << std::endl;
+	std::cout << ">>>> EXPECTED: " << expected_result.to_string() << std::endl;
+
+	EXPECT_EQ(MatrixOperations::rotate_z(point, 90).get_rounded(), expected_result);
 }
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, round_TwoPointThreeToNineAndZeroDecimalsInput_ReturnTwo) {

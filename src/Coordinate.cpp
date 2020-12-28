@@ -289,6 +289,19 @@ std::string Coordinate::to_string() const{
     return to_return;
 }
 
+Coordinate Coordinate::get_rounded() const{
+    // This function will take all the values in the x,y,z,k positions and round them up
+    // using the cmath function std::round. The colour values will be left alone
+    static Coordinate result;
+
+    result.set_x(std::round(get_x()));
+    result.set_y(std::round(get_y()));
+    result.set_z(std::round(get_z()));
+    result.set_k(std::round(get_k()));
+
+    return result;
+}
+
 Coordinate Coordinate::operator+(const Coordinate & rhs) {
     Coordinate result;
 
