@@ -33,6 +33,8 @@ public:
     static Coordinate& rotate_y(Coordinate& input, double angle);
     static Coordinate& rotate_z(Coordinate& input, double angle);
     static double round(double input, int decimals = 4);
+    static double to_radians(double input_angle);
 private:
-    // Not really required
+    // Member Variables
+    static const float PI;
 };

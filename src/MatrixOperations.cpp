@@ -1,5 +1,7 @@
 #include "MatrixOperations.h"
 
+const float MatrixOperations::PI = 3.14159265358979;
+
 // Tested
 double MatrixOperations::dot_product(Coordinate& lhs, Coordinate& rhs) {
     // This function will calculate the dot product between two coordinates and return it
@@ -246,8 +248,8 @@ Coordinate& MatrixOperations::rotate_x(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(round((input.get_x() * std::cos(angle)) - (input.get_y() * std::sin(angle))));
-    result.set_y(round((input.get_x() * std::sin(angle)) + (input.get_y()*std::cos(angle))));
+    result.set_x(round((input.get_x() * std::cos(to_radians(angle))) - (input.get_y() * std::sin(to_radians(angle)))));
+    result.set_y(round((input.get_x() * std::sin(to_radians(angle))) + (input.get_y()*std::cos(to_radians(angle)))));
     result.set_z(round(input.get_z()));
 
     return result;
@@ -261,9 +263,14 @@ Coordinate& MatrixOperations::rotate_y(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
+// 2, -4, 3
+// x:  + (3)
+// y: -4
+// z: (-1 * 2) + 
+
+    result.set_x(round((input.get_x() * std::cos(to_radians(angle))) + (input.get_z() * std::sin(to_radians(angle)))));
     result.set_y(round(input.get_y()));
-    result.set_z(round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
+    result.set_z(round((-1* input.get_x() * std::sin(to_radians(angle))) + (input.get_z() * std::cos(to_radians(angle)))));
 
     return result;
 }
@@ -276,9 +283,9 @@ Coordinate& MatrixOperations::rotate_z(Coordinate& input, double angle) {
 
     static Coordinate result;
 
-    result.set_x(round((input.get_x() * std::cos(angle)) + (input.get_z() * std::sin(angle))));
-    result.set_y(round(input.get_y()));
-    result.set_z(round((-1* input.get_x() * std::sin(angle)) + (input.get_z() * std::cos(angle))));
+    result.set_x(round((input.get_x() * std::cos(to_radians(angle))) - (input.get_y() * std::sin(to_radians(angle)))));
+    result.set_y(round((input.get_x() * std::sin(to_radians(angle))) + (input.get_y() * std::cos(to_radians(angle)))));
+    result.set_z(round(input.get_z()));
 
     return result;
 }
@@ -293,6 +300,13 @@ double MatrixOperations::round(double input, int decimals) {
     }
 
     return floor(input*decimal_factor+0.5)/decimal_factor;
+}
+
+double MatrixOperations::to_radians(double input_angle) {
+    // This function takes in a degree value, and returns the value in radians,
+    // since c++'s internal std::cos(), std::sin(), etc, use radians rather than
+    // degrees
+    return (input_angle * PI/180.0);
 }
 
 // Tested
