@@ -182,9 +182,13 @@ double MatrixOperations::get_ray_lambda(Coordinate& input_plane, Coordinate& ray
     // Calculate the actual lambda as necessary
     lambda_to_return = numerator / denominator;
 
-    std::cout << ">> input_plane.k:          " << input_plane.get_k() << std::endl;
-    std::cout << ">> input_plane.ray_origin: " << MatrixOperations::dot_product(input_plane,ray_origin) << std::endl;
-    std::cout << ">> input_plane.view_plane: " << MatrixOperations::dot_product(input_plane, view_plane) << std::endl;
+    std::cout << ">> input_plane.to_string(): " << input_plane.to_string() << std::endl;
+    std::cout << ">> ray_origin.to_string():  " << ray_origin.to_string() << std::endl;
+    std::cout << ">> view_plane.to_string():  " << view_plane.to_string() << std::endl;
+    std::cout << ">> input_plane.k:           " << input_plane.get_k() << std::endl;
+    std::cout << ">> input_plane.ray_origin:  " << MatrixOperations::dot_product(input_plane,ray_origin) << std::endl;
+    std::cout << ">> input_plane.view_plane:  " << MatrixOperations::dot_product(input_plane, view_plane) << std::endl;
+    std::cout << ">> lambda:                  " << lambda_to_return << std::endl;
 
     return lambda_to_return;
 }

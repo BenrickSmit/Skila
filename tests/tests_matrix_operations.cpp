@@ -78,46 +78,96 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, subtract_SevenMinusZero_ReturnSeven) {
 
 // Erroneous
 TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOnPlaneInput_ReturnLambdaBiggerThanEqualZero) {
-	Coordinate x{-1,0,2},y{1,0,2},z{0,-3,3};
-	// the test view plane is a 5x5 grid, 2.2.1 is in the middle
-	Coordinate view_plane_m{0.1*(2-2),0.1*(2-2),1}, camera_position_ray_origin{0,-1,-1};
-	Coordinate input_plane;
+	// Find the value of lambda for a given set of default points and the triangle
+	// that they form.
 
+	// PS: This specifies a lambda that directly hits a triangle formed by the plane. It should
+	//		return a colour once all calculations are complete.
+
+	Coordinate x{-1.0,0,2}, y{1.0,0,2}, z{0.0,-1,3};				// Creates the plane
+	Coordinate ray_origin{0.0,-1,-1};								// Used for the camera and ray origin
+	Coordinate view_plane{(0.1 * (2-2)), (0.1 * (2-2)), (1.0)};	// Used for the view_plane
+	
 	Object triangle;
 	triangle.add_triangle(x,y,z);
-	triangle.calculate_vector_plane();
-	input_plane = triangle.get_plane();
-	EXPECT_GE(MatrixOperations::get_ray_lambda(input_plane, camera_position_ray_origin, view_plane_m), 0);
+	triangle.calculate_object_normal();	// Not really necessary, done implicitly
+	triangle.calculate_vector_plane(); // Not really necessary, done implicitly
+	
+	//Double value
+	Coordinate plane;
+	plane.set_plane(triangle.get_plane());
+	double lambda = -1;
+	lambda = MatrixOperations::get_ray_lambda(plane, ray_origin, view_plane);
+
+	// Returning a Lambda bigger than zero means the ray intersects the plane
+	EXPECT_GE(lambda, 0);
 }
 
-TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOutsidePlaneInput_ReturnLambdaLessThanZero) {
-	Coordinate x{-1,0,2},y{1,0,2},z{0,-3,3};
-	// the test view plane is a 5x5 grid, 4.4.1 is in the middle
-	Coordinate view_plane_m{0.1*(4-2),0.1*(4-2),1}, camera_position_ray_origin{0,-1,-1};
-	Coordinate input_plane;
+TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOnPlaneBehindCameraInput_ReturnLambdaNegative) {
+	// Find the value of lambda for a given set of default points and the triangle
+	// that they form.
 
+	// PS: With this the camera is behind the triangle formed, and although the ray does intersect
+	// 		with the triangle, lambda is negative, indicating it is behidn the camera/ray origin, 
+	//		and thus not necessary to take into consideration
+
+	Coordinate x{-1.0,0,2}, y{1.0,0,2}, z{0.0,-1,3};				// Creates the plane
+	Coordinate ray_origin{0.0,4,-1};								// Used for the camera and ray origin
+	Coordinate view_plane{(0.1 * (2-2)), (0.1 * (2-2)), (5.0)};	// Used for the view_plane
+	
 	Object triangle;
 	triangle.add_triangle(x,y,z);
-	triangle.calculate_vector_plane();
-	input_plane = triangle.get_plane();
-	EXPECT_LT(MatrixOperations::get_ray_lambda(input_plane, camera_position_ray_origin, view_plane_m), 0);
+	triangle.calculate_object_normal();	// Not really necessary, done implicitly
+	triangle.calculate_vector_plane(); // Not really necessary, done implicitly
+	
+	//Double value
+	Coordinate plane;
+	plane.set_plane(triangle.get_plane());
+	double lambda = -1;
+	lambda = MatrixOperations::get_ray_lambda(plane, ray_origin, view_plane);
+
+	// Returning a Lambda bigger than zero means the ray intersects the plane
+	EXPECT_LT(lambda, 0);
 }
 
-// Erroneous
+TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_lambda_CoordinatesOutsidePlaneInput_ReturnLambdaGreaterOrEqualZero) {
+	// Find the value of lambda for a given set of default points and the triangle
+	// that they form.
+
+	// PS: view_plane here is specified as the leftmost pixel on the middle row of the viewplane
+	//		it is not meant to return a value and should return black as a the colour should
+	
+	Coordinate x{-1.0,0,2}, y{1.0,0,2}, z{0.0,-1,3};				// Creates the plane
+	Coordinate ray_origin{0.0,-1,-1};								// Used for the camera and ray origin
+	Coordinate view_plane{(0.1 * (0-2)), (0.1 * (0-2)), (1.0)};		// Used for the view_plane -> 
+	
+	Object triangle;
+	triangle.add_triangle(x,y,z);
+	triangle.calculate_object_normal();	// Not really necessary, done implicitly
+	triangle.calculate_vector_plane(); // Not really necessary, done implicitly
+	
+	//Double value
+	Coordinate plane;
+	plane.set_plane(triangle.get_plane());
+	double lambda = -1;
+	lambda = MatrixOperations::get_ray_lambda(plane, ray_origin, view_plane);
+
+	// Returning a Lambda bigger than zero means the ray intersects the plane
+	EXPECT_GE(lambda, 0);
+}
+
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndNinetyDegreesInput_ReturnTwoMinusFourThree) {
 	Coordinate point{2,-2,4};
 	Coordinate expected_result{2,2,4};
 	EXPECT_EQ(MatrixOperations::rotate_x(point, 90).get_rounded(), expected_result);
 }
 
-// Erroneous
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_x_TwoThreeFourAndThreeNinetyDegreesInput_ReturnTwoMinusThreeFloatTwoFloat) {
 	Coordinate point{2,-2,4};
 	Coordinate expected_result{2,2,4};
 
 	EXPECT_EQ(MatrixOperations::rotate_x(point, 450).get_rounded(), expected_result);
 }
-
 
 TEST(TEST_MATRIX_OPERATIONS_SUITE, rotate_y_TwoMinusFourThreeAndNinetyDegreesInput_ReturnFourThreeZero) {
 	Coordinate point{2,-4,3};

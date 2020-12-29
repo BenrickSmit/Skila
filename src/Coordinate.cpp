@@ -175,7 +175,7 @@ bool Coordinate::set_coordinate(std::vector<double> coordinate_input) {
         set_coordinate(coordinate_input.at(0),coordinate_input.at(1),coordinate_input.at(2));
         return true;
     }else {
-        set_coordinate();
+        set_coordinate(0.0,0.0,0.0);
         std::cerr << "Coordinate::set_colour() Error: vector size mismatch" << std::endl;
         return false;
     }
