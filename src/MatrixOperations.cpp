@@ -35,56 +35,63 @@ Coordinate MatrixOperations::cross_product(Coordinate& lhs, Coordinate& rhs) {
     return result;
 }
 
+// Tested - Indirectly
 bool MatrixOperations::within_plane(Coordinate& input_ray_intersection,
     std::vector<Coordinate> list_coordinates) {
+    //\todo: optimise!
     // This funciton will simply determine whether the input_plane and the lines
     // found will be on the same side. If it isn't the information should not be taken to heart
-    Coordinate line_t2_t3, line_t1_t3, line_t1_t2;
     Coordinate t1, t2, t3;
-    Coordinate a, b;
-    double c_t2_t3, c_t1_t3, c_t1_t2;
+    Coordinate a, b, i, v;
+    double c;
     bool result = true;
 
     t1 = static_cast<Coordinate&>(list_coordinates.at(0));
     t2 = static_cast<Coordinate&>(list_coordinates.at(1));
     t3 = static_cast<Coordinate&>(list_coordinates.at(2));
 
-    // Calculate whether the intersection is within/on the triangle
-    line_t2_t3 = t2 - t3;
-    a = cross_product(line_t2_t3, subtract(input_ray_intersection, t3));
-    b = cross_product(line_t2_t3, subtract(t1, t3));
-    c_t2_t3 = dot_product(a,b);
+    // Calculate whether the intersection is on the same side as t2_t3.
+    i = input_ray_intersection;
+    v = subtract(t2,t3);         //v used later in the formulat
+    a = cross_product(v, subtract(i, t3));
+    b = cross_product(v, subtract(t1, t3));
+    c = dot_product(a,b);
 
-    if (c_t2_t3 <= 0){
+    if(c <= 0) {
         result = false;
         return result;
     }
 
-    // Calculat the
-    line_t1_t3 = t1 - t3;
-    a = cross_product(line_t1_t3, subtract(input_ray_intersection, t3));
-    b = cross_product(line_t1_t3, subtract(t2, t3));
-    c_t1_t3 = dot_product(a,b);
+    // Calculate whether the intersection is on the same side as t1_t3.
+    i = input_ray_intersection;
+    v = subtract(t1,t3);         //v used later in the formulat
+    a = cross_product(v, subtract(i, t3));
+    b = cross_product(v, subtract(t2, t3));
+    c = dot_product(a,b);
 
-    if (c_t1_t3 <= 0){
+    if(c <= 0) {
         result = false;
         return result;
     }
 
-    // Calculate the 
-    line_t1_t2 = t1 - t2;
-    a = cross_product(line_t1_t2, subtract(input_ray_intersection, t2));
-    b = cross_product(line_t1_t2, subtract(t3, t2));
-    c_t1_t2 = dot_product(a,b);
+    // Calculate whether the intersection is on the same side as t1_t2.
+    i = input_ray_intersection;
+    v = subtract(t1,t2);         //v used later in the formulat
+    a = cross_product(v, subtract(i, t2));
+    b = cross_product(v, subtract(t3, t1));
+    c = dot_product(a,b);
 
-    if (c_t1_t2 <= 0){
+    if(c <= 0) {
         result = false;
         return result;
     }
 
+    // Should all the tests pass return true
+    result = true;
     return result;
 }
 
+// Tested - Indirectly
 bool MatrixOperations::within_bounding_box(Coordinate& input_ray_intersection, std::vector<Coordinate> list_coordinates) {
     // This function will obtain the minimum and maximum values for the inherent
     // coordinates and determine whether the input plane is at least within the
@@ -155,6 +162,7 @@ Coordinate& MatrixOperations::subtract(Coordinate& lhs, Coordinate& rhs) {
     return result;
 }
 
+// Tested
 double MatrixOperations::get_ray_lambda(Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane) {
     double lambda_to_return = -1.0;
 
@@ -181,14 +189,6 @@ double MatrixOperations::get_ray_lambda(Coordinate& input_plane, Coordinate& ray
 
     // Calculate the actual lambda as necessary
     lambda_to_return = numerator / denominator;
-
-    std::cout << ">> input_plane.to_string(): " << input_plane.to_string() << std::endl;
-    std::cout << ">> ray_origin.to_string():  " << ray_origin.to_string() << std::endl;
-    std::cout << ">> view_plane.to_string():  " << view_plane.to_string() << std::endl;
-    std::cout << ">> input_plane.k:           " << input_plane.get_k() << std::endl;
-    std::cout << ">> input_plane.ray_origin:  " << MatrixOperations::dot_product(input_plane,ray_origin) << std::endl;
-    std::cout << ">> input_plane.view_plane:  " << MatrixOperations::dot_product(input_plane, view_plane) << std::endl;
-    std::cout << ">> lambda:                  " << lambda_to_return << std::endl;
 
     return lambda_to_return;
 }
@@ -228,6 +228,8 @@ bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& inpu
         return result.is_valid();
     }
 
+    //std::cout << ">>>> MatrixOperations::within_bounding_box(): " << MatrixOperations::within_bounding_box(result, list_coordinates) << std::endl;
+
     // Determine whether the ray actually intersects the plane
     if (!MatrixOperations::within_plane(result, list_coordinates)){
         result = Coordinate(std::vector<double>{FLT_MIN, FLT_MIN, FLT_MIN});
@@ -235,12 +237,29 @@ bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& inpu
         return result.is_valid();
     }
 
+    //std::cout << ">>>> MatrixOperations::within_plane(): " << MatrixOperations::within_plane(result, list_coordinates) << std::endl;
+
     // The ray is valid in all other cases, so set it as such
     result.set_valid(true);
 
-    // Do something with the actual ray and the intersection
-
     return result.is_valid();
+}
+
+double MatrixOperations::get_ray_rasterisation(Coordinate& ray_intersection_point, Coordinate& ray_origin) {
+    // This function determines how bright the light of the pixel is by using the
+    // pythagorean theorem - with some optimizations
+    double result = -1;
+
+    // Calculate the light strength
+    result = std::sqrt((ray_intersection_point.get_x() - ray_origin.get_x()) * 
+                        (ray_intersection_point.get_x() - ray_origin.get_x()) + 
+                        (ray_intersection_point.get_y() - ray_origin.get_y()) * 
+                        (ray_intersection_point.get_y() - ray_origin.get_y()) + 
+                        (ray_intersection_point.get_z() - ray_origin.get_z()) * 
+                        (ray_intersection_point.get_z() - ray_origin.get_z()));
+
+    //Convert the result to a value out of 100
+    return (1/result);
 }
 
 // Tested
@@ -289,6 +308,26 @@ Coordinate& MatrixOperations::rotate_z(Coordinate& input, double angle) {
     result.set_z(round(input.get_z()));
 
     return result;
+}
+
+// Tested
+std::vector<uint16_t> MatrixOperations::get_ray_colour(Coordinate& input, double ray_rasterisation) {
+    // This function will take the colour it gets from the input coordinate and 
+    // the value of the colour based on how far it is from the light source, etc
+    std::vector<uint16_t> colour_return;
+
+    uint16_t r = input.get_colour().at(0);
+    uint16_t g = input.get_colour().at(1);
+    uint16_t b = input.get_colour().at(2);
+    // alpha will not be affected by rays
+
+    colour_return.clear();
+    colour_return.push_back(r);
+    colour_return.push_back(g);
+    colour_return.push_back(b);
+    colour_return.push_back(input.get_colour().at(3));
+
+    return colour_return;
 }
 
 // Tested

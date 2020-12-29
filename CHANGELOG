@@ -31,10 +31,25 @@
 
 28/12/2020:
 ===========
-~ Added Rorate along the z-axis
+~ Added Rorate along the x,y,and z-axis
 ~ Added custom round function as std::round rounded to integers, which I didn't particularly enjoy
+
+30/12/2020:
+===========
+~ Fixed Tests for Within_Bounds and Within_Plane
+~ Fixed Tests and functions for Ray Intersection calculation
+~ Added Rasterization of Rays to return 1/d as pixel brightness
+~ Added some tests for ray rasterization - will add more later
+~ Added Ray colour getters (colour of the object based on distance)
+~ Added Tests for Ray Colours
+~ Added "Colour Math" with the help of Pythagoras (Very likely incorrect)
+
 
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.
 ~ Add coordinate movement funcitons via addition of additional vectors - required for movement of scenery
+~ Specularity   (Coordinate)
+~ Roughness     (Coordinate)
+~ Reflection    (Coordinate)
+~ Light Absorbtion  (Coordinate)

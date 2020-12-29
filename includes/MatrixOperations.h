@@ -28,10 +28,12 @@ public:
     static double get_max_value(double x, double y, double z);
     static Coordinate& subtract(Coordinate& lhs, Coordinate& rhs);
     static double get_ray_lambda(Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane);
-    static bool get_ray_intersection(Coordinate& result, Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane, std::vector<Coordinate> list_coordinates);
+    static bool get_ray_intersection(Coordinate& result_to_return, Coordinate& input_plane, Coordinate& ray_origin, Coordinate& view_plane, std::vector<Coordinate> list_coordinates);
+    static double get_ray_rasterisation(Coordinate& ray_intersection_point, Coordinate& ray_origin);
     static Coordinate& rotate_x(Coordinate& input, double angle);
     static Coordinate& rotate_y(Coordinate& input, double angle);
     static Coordinate& rotate_z(Coordinate& input, double angle);
+    static std::vector<uint16_t> get_ray_colour(Coordinate& input, double ray_rasterisation);
     static double round(double input, int decimals = 4);
     static double to_radians(double input_angle);
 private:
