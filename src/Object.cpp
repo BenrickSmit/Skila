@@ -7,6 +7,15 @@ Object::Object(){
     m_list_coordinates.clear();
 }
 
+Object::Object(const Coordinate& point1, const Coordinate& point2, 
+                const Coordinate& point3) {
+    add_triangle(point1, point2, point3);
+}
+
+Object::Object(std::vector<Coordinate> points) {
+    add_triangle(points);
+}
+
 // Tested
 std::vector<Coordinate> Object::get_points() {
     // Returns the points as a vector in the order they were added
