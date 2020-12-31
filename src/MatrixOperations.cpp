@@ -330,6 +330,42 @@ std::vector<uint16_t> MatrixOperations::get_ray_colour(Coordinate& input, double
     return colour_return;
 }
 
+std::vector<float> MatrixOperations::get_barycentric_coordinates(Coordinate& input, std::vector<Coordinate> list_coordinates) {
+    // This function find the barycentric coordinates and returns them in the order u,v,w.
+
+    // A simple test to see whether there are three elements in the list of passed coordinates
+    if(list_coordinates.size() != 3) {
+        return std::vector<float>();
+    }
+
+    // Create the required lines
+    std::vector<float> result;
+
+    Coordinate v0 = subtract(list_coordinates.at(1),list_coordinates.at(0));
+    Coordinate v1 = subtract(list_coordinates.at(2),list_coordinates.at(0)); 
+    Coordinate v2 = subtract(input,list_coordinates.at(0));
+
+    // Create the individual elements of the matrix
+    float d00 = dot_product(v0, v0);
+    float d01 = dot_product(v0, v1);
+    float d11 = dot_product(v1, v1);
+    float d20 = dot_product(v2, v0);
+    float d21 = dot_product(v2, v1);
+    float denom = 1.0 / ((d00 * d11) - (d01 * d01));
+    
+    // Calculate the barycentric coordinates
+    float v = ((d11 * d20) - (d01 * d21)) * denom;
+    float w = ((d00 * d21) - (d01 * d20)) * denom;
+    float u = 1.0f - v - w;
+
+    result.clear();
+    result.push_back(u);
+    result.push_back(v);
+    result.push_back(w);
+
+    return result;
+}
+
 // Tested
 double MatrixOperations::round(double input, int decimals) {
     int decimal_factor = 1;

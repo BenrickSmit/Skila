@@ -43,12 +43,20 @@
 ~ Added Ray colour getters (colour of the object based on distance)
 ~ Added Tests for Ray Colours
 ~ Added "Colour Math" with the help of Pythagoras (Very likely incorrect)
+    using barycentric coordinates
 
+31/12/2020:
+===========
+~ Find the new colour values based on where the points are on the triangle
 
 To Add:
 =======
 ~ Profile code. will likey have to change vector inputs to const std::vector<type> & later.
 ~ Add coordinate movement funcitons via addition of additional vectors - required for movement of scenery
+~ Add in testing whether the point is on the plane with the help of barycentric coordinates
+~ Change some of the more heavily called functions to not return a value, but rather return by reference.
+    This will make the functions longer, but will help in speed later. This can help with at least 30% increase in speed
+
 ~ Specularity   (Coordinate)
 ~ Roughness     (Coordinate)
 ~ Reflection    (Coordinate)
