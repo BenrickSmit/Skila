@@ -490,3 +490,37 @@ TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_colour_BlueInput_ReturnColourBetweenZ
 	EXPECT_GE(result.get_colour().at(2), 0);
 }
 
+TEST(TEST_MATRIX_OPERATIONS_SUITE, get_ray_colour_RGBInput_ReturnMixedColourBetweenZeroAndTwoFiftyFive) {
+	// Find out whether a given camera/ray origin, view plane and triangle intersect
+	Coordinate x{-1.0,0,2, 0, 0, 255, 255}, y{1.0,0,2, 0, 255, 0, 255}, z{0.0,-1,3, 255, 0, 0, 255};				// Creates the plane
+	Coordinate ray_origin{0.0,-1,-1};								// Used for the camera and ray origin
+	Coordinate view_plane{(0.1 * (2-2)), (0.1 * (4-2)), (2.0)};	// Used for the view_plane
+	
+	Object triangle;
+	triangle.add_triangle(x,y,z);
+	triangle.calculate_object_normal();	// Not really necessary, done implicitly
+	triangle.calculate_vector_plane(); // Not really necessary, done implicitly
+	
+	//Double value
+	Coordinate plane;
+	Coordinate result;
+	plane.set_plane(triangle.get_plane());
+	double is_intersected = false;
+	is_intersected = MatrixOperations::get_ray_intersection(result, plane, ray_origin, view_plane, triangle.get_points());
+
+	double brightness_value = -1.0;
+	if(is_intersected) {
+		brightness_value = MatrixOperations::get_ray_rasterisation(result, ray_origin);
+		result.set_colour(MatrixOperations::get_ray_colour(result, brightness_value));
+	}
+
+	EXPECT_LE(result.get_colour().at(0), 255);
+	EXPECT_LE(result.get_colour().at(1), 255);
+	EXPECT_LE(result.get_colour().at(2), 255);
+	EXPECT_GE(result.get_colour().at(0), 0);
+	EXPECT_GE(result.get_colour().at(1), 0);
+	EXPECT_GE(result.get_colour().at(2), 0);
+}
+
+
+

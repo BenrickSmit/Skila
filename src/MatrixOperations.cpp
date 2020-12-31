@@ -376,9 +376,9 @@ std::vector<float>& MatrixOperations::get_barycentric_coordinates(Coordinate& in
     return result;
 }
 
-std::vector<uint16_t> MatrixOperations::get_barycentric_colours(std::vector<float>& barycentric_coordinates, std::vector<Coordinate>& list_coordinates) {
+std::vector<uint16_t>& MatrixOperations::get_barycentric_colours(std::vector<float>& barycentric_coordinates, std::vector<Coordinate>& list_coordinates) {
     // This function will use the barycentric coordinates and the colours of the provided coordinates to provide a new RGB value
-    std::vector<uint16_t> result;
+    static std::vector<uint16_t> result;
     result.clear();
     // Red
     result.push_back((barycentric_coordinates.at(0) * list_coordinates.at(0).get_r()) + 
@@ -394,6 +394,11 @@ std::vector<uint16_t> MatrixOperations::get_barycentric_colours(std::vector<floa
     result.push_back((barycentric_coordinates.at(0) * list_coordinates.at(0).get_b()) + 
     (barycentric_coordinates.at(1) * list_coordinates.at(1).get_b()) + 
     (barycentric_coordinates.at(2) * list_coordinates.at(2).get_b()));
+
+    // Alpha
+    // The avg of all three
+    result.push_back((list_coordinates.at(0).get_a() + list_coordinates.at(1).get_a() + 
+                        list_coordinates.at(2).get_a())/list_coordinates.size());
 
     return result;
 }
