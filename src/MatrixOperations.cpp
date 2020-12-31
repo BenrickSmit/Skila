@@ -242,6 +242,13 @@ bool MatrixOperations::get_ray_intersection(Coordinate& result, Coordinate& inpu
     // The ray is valid in all other cases, so set it as such
     result.set_valid(true);
 
+    // Calculate the intersection's colour
+    result.set_colour(get_barycentric_colours(get_barycentric_coordinates(result, list_coordinates), list_coordinates));
+
+    std::cout << "Intersection Colour R: " << result.get_r() << std::endl;
+    std::cout << "Intersection Colour G: " << result.get_g() << std::endl;
+    std::cout << "Intersection Colour B: " << result.get_b() << std::endl;
+
     return result.is_valid();
 }
 
@@ -330,16 +337,19 @@ std::vector<uint16_t> MatrixOperations::get_ray_colour(Coordinate& input, double
     return colour_return;
 }
 
-std::vector<float> MatrixOperations::get_barycentric_coordinates(Coordinate& input, std::vector<Coordinate> list_coordinates) {
+std::vector<float>& MatrixOperations::get_barycentric_coordinates(Coordinate& input, std::vector<Coordinate>& list_coordinates) {
     // This function find the barycentric coordinates and returns them in the order u,v,w.
 
     // A simple test to see whether there are three elements in the list of passed coordinates
-    if(list_coordinates.size() != 3) {
-        return std::vector<float>();
-    }
+    
 
     // Create the required lines
-    std::vector<float> result;
+    static std::vector<float> result;
+
+    if(list_coordinates.size() != 3) {
+        result.clear();
+        return result;
+    }
 
     Coordinate v0 = subtract(list_coordinates.at(1),list_coordinates.at(0));
     Coordinate v1 = subtract(list_coordinates.at(2),list_coordinates.at(0)); 
@@ -362,6 +372,28 @@ std::vector<float> MatrixOperations::get_barycentric_coordinates(Coordinate& inp
     result.push_back(u);
     result.push_back(v);
     result.push_back(w);
+
+    return result;
+}
+
+std::vector<uint16_t> MatrixOperations::get_barycentric_colours(std::vector<float>& barycentric_coordinates, std::vector<Coordinate>& list_coordinates) {
+    // This function will use the barycentric coordinates and the colours of the provided coordinates to provide a new RGB value
+    std::vector<uint16_t> result;
+    result.clear();
+    // Red
+    result.push_back((barycentric_coordinates.at(0) * list_coordinates.at(0).get_r()) + 
+    (barycentric_coordinates.at(1) * list_coordinates.at(1).get_r()) + 
+    (barycentric_coordinates.at(2) * list_coordinates.at(2).get_r()));
+
+    // Green
+    result.push_back((barycentric_coordinates.at(0) * list_coordinates.at(0).get_g()) + 
+    (barycentric_coordinates.at(1) * list_coordinates.at(1).get_g()) + 
+    (barycentric_coordinates.at(2) * list_coordinates.at(2).get_g()));
+
+    // Blue
+    result.push_back((barycentric_coordinates.at(0) * list_coordinates.at(0).get_b()) + 
+    (barycentric_coordinates.at(1) * list_coordinates.at(1).get_b()) + 
+    (barycentric_coordinates.at(2) * list_coordinates.at(2).get_b()));
 
     return result;
 }

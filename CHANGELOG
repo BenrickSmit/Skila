@@ -48,6 +48,7 @@
 31/12/2020:
 ===========
 ~ Find the new colour values based on where the points are on the triangle
+~ Add barycentric colour calculator function
 
 To Add:
 =======

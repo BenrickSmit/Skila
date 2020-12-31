@@ -34,7 +34,8 @@ public:
     static Coordinate& rotate_y(Coordinate& input, double angle);
     static Coordinate& rotate_z(Coordinate& input, double angle);
     static std::vector<uint16_t> get_ray_colour(Coordinate& input, double ray_rasterisation);
-    static std::vector<float> get_barycentric_coordinates(Coordinate& input, std::vector<Coordinate> list_coordinates);
+    static std::vector<float>& get_barycentric_coordinates(Coordinate& input, std::vector<Coordinate>& list_coordinates);
+    static std::vector<uint16_t> get_barycentric_colours(std::vector<float>& barycentric_coordinates, std::vector<Coordinate>& list_coordinates);
     static double round(double input, int decimals = 4);
     static double to_radians(double input_angle);
 private:
