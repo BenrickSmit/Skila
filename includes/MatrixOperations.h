@@ -1,12 +1,8 @@
-/** @brief Dummy class used for illustration purposes. Doing something with it.
-
-    Detailed description follows here.
-    For more examples of doxygen comments, look here [https://www.doxygen.nl/manual/docblocks.html] and
-    [https://flcwiki.desy.de/How%20to%20document%20your%20code%20using%20doxygen]
-
-    @author X. XYZ, DESY
-    @date March 2008
-
+/** @brief This class is used to enable all the more difficult processing
+ *          required in ray tracing. It contains methods that help with
+ *          barycentric colours, and more.
+ *  @author B.G. Smit
+ *  @date 9/12/2020
 */
 
 #pragma once
