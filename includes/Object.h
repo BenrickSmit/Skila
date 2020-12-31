@@ -49,7 +49,7 @@ class Object  {
          * @return std::vector<Coordinate> the Coordinates that make up the 
          *          Triangle
          */
-        std::vector<Coordinate> get_points();
+        std::vector<Coordinate>& get_points();
         /**
          * @brief Get the normal of the triangle 
          * 
@@ -98,6 +98,22 @@ class Object  {
          */
         void calculate_vector_plane();
         
+        /**
+         * @brief Set the colour of all points in the object
+         * 
+         * @param red the amount of red in the colour (0-255)
+         * @param green the amount of green in the colour (0-255)
+         * @param blue the amount of blue in the colour (0-255)
+         * @param alpha the opacity of the colour (0-255)
+         */
+        void set_colour(uint16_t red, uint16_t green, uint16_t blue, uint16_t alpha);
+        /**
+         * @brief Set the colour of all points in the object with a vector
+         * 
+         * @param colour_values the vector containing the colour values
+         */
+        void set_colour(std::vector<uint16_t> colour_values);
+
 	private:
         //bool is_triangle;
         Coordinate m_object_normal;                 // The normal coordinate

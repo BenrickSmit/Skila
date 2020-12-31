@@ -45,6 +45,10 @@
 ~ Added "Colour Math" with the help of Pythagoras (Very likely incorrect)
     using barycentric coordinates
 
+01/01/2020:
+============
+~ Added functions to Skila to enable basic scene setup
+
 31/12/2020:
 ===========
 ~ Find the new colour values based on where the points are on the triangle

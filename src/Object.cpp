@@ -17,15 +17,16 @@ Object::Object(std::vector<Coordinate> points) {
 }
 
 // Tested
-std::vector<Coordinate> Object::get_points() {
+std::vector<Coordinate>& Object::get_points() {
     // Returns the points as a vector in the order they were added
-    std::vector<Coordinate> result;
+    //std::vector<Coordinate> result;
 
-    result.push_back(m_list_coordinates.at(0));
-    result.push_back(m_list_coordinates.at(1));
-    result.push_back(m_list_coordinates.at(2));
+    //result.push_back(m_list_coordinates.at(0));
+    //result.push_back(m_list_coordinates.at(1));
+    //result.push_back(m_list_coordinates.at(2));
 
-    return result;
+    //return result;
+    return m_list_coordinates;
 }
 
 // Tested
@@ -114,6 +115,22 @@ void Object::calculate_vector_plane() {
 
     // Set the value of k
     m_object_normal.set_k(MatrixOperations::dot_product(tempNormal.scalar_multiply(-1), temp));
+}
+
+void Object::set_colour(uint16_t red, uint16_t green, uint16_t blue, uint16_t alpha) {
+    get_points().at(0).set_colour(red, green, blue, alpha);
+    get_points().at(1).set_colour(red, green, blue, alpha);
+    get_points().at(2).set_colour(red, green, blue, alpha);
+}
+
+void Object::set_colour(std::vector<uint16_t> colour_values) {
+    // Determine whether there are the necessary amount of colours, otherwise set to zero
+    if(colour_values.size() == 4){
+        set_colour(colour_values.at(0),colour_values.at(1),colour_values.at(2),colour_values.at(3));
+    }else{
+        set_colour(0,0,0,255);
+        std::cerr << "ERROR: Object::set_colour() size mismatch" << std::endl;
+    }
 }
 
 
