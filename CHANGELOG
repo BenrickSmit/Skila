@@ -48,6 +48,8 @@
 01/01/2020:
 ============
 ~ Added functions to Skila to enable basic scene setup
+~ Added Skila tests
+~ Added basic OpenGL support
 
 31/12/2020:
 ===========
