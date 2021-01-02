@@ -3,7 +3,9 @@
 
 #include "Skila.h"
 
-int main(int argc, char** argv){
+
+int main(void)
+{
     GLFWwindow* window;
 
     /* Initialize the library */

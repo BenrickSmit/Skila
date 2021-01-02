@@ -3,7 +3,7 @@
 ##------------------------------------------------------------------------------
 set(BOOL_CREATE_INSTALLER OFF)
 set(BOOL_CREATE_EXECUTABLE ON)
-set(BOOL_CREATE_LIBRARY ON)
+set(BOOL_CREATE_LIBRARY OFF)
 set(BOOL_PROFILE_CODE OFF)
 set(BOOL_USE_BOOST OFF)
 set(BOOL_32_BIT_COMPILATION ON)
@@ -45,6 +45,7 @@ if(${BOOL_CREATE_EXECUTABLE})
     endif()
     ## Allow for threads
     target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
+    target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL ${OPENGL_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
     
     ## If the file is successfully created, move it to bin and create a dir
@@ -80,7 +81,8 @@ if(${BOOL_CREATE_LIBRARY})
     endif()
     ## Allow for threads
     target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
-    target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
+    target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL ${OPENGL_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} PRIVATE glfw ${GLFW_LIBRARIES})
 
     ## If the file is successfully created, move it to bin and create a dir
     ## for the current lib_<compiler>_<OS>_<version>

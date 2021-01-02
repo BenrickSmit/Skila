@@ -26,7 +26,17 @@ add_subdirectory(src)
 ## SECTION: Enable OpenGL and GLFW
 ##------------------------------------------------------------------------------
 find_package(OpenGL REQUIRED)
-add_subdirectory(lib/glfw-3.3.2 EXCLUDE_FROM_ALL)
+include_directories(${OPENGL_INCLUDE_DIRS})
+
+## GLFW
+set(GLFW_DIR lib/glfw-3.3.2)
+set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "Build the GLFW example programs")
+set(GLFW_BUILD_TESTS OFF CACHE INTERNAL "Build the GLFW test programs")
+set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "Build the GLFW documentation")
+set(GLFW_INSTALL OFF CACHE INTERNAL "Generate installation target")
+add_subdirectory(${GLFW_DIR})
+
+
 
 ##------------------------------------------------------------------------------
 ## SECTION: Enable testing on the project
