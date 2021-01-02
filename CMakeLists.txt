@@ -23,6 +23,11 @@ include_directories(lib)
 add_subdirectory(src)
 
 ##------------------------------------------------------------------------------
+## SECTION: Enable OpenGL and GLFW
+##------------------------------------------------------------------------------
+find_package(OpenGL REQUIRED)
+add_subdirectory(lib/glfw-3.3.2 EXCLUDE_FROM_ALL)
+##------------------------------------------------------------------------------
 ## SECTION: Enable testing on the project
 ##------------------------------------------------------------------------------
 if(${BOOL_CREATE_TESTS})

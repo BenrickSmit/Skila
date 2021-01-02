@@ -27,16 +27,18 @@ endif()
 
 ## Ensure the use of pthreads for the library
 set(THREADS_PREFER_PTHREADS_FLAG ON)
-#find_package(Threads REQUIRED)
+find_package(Threads REQUIRED)
+find_package(OpenGL REQUIRED)
 
 ##------------------------------------------------------------------------------
 ## SECTION: Create an executable
 ##------------------------------------------------------------------------------
 if(${BOOL_CREATE_EXECUTABLE})
     ## Create the required executable
-    add_executable(${PROJECT_NAME} ${EXEC_FILE_SOURCES} "MatrixOperations.cpp")
+    add_executable(${PROJECT_NAME} ${EXEC_FILE_SOURCES})
     ## Allow for threads
-    #target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
+    target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
     
     ## If the file is successfully created, move it to bin and create a dir
     ## for the current <compiler>_<OS>_<version>
@@ -64,7 +66,8 @@ if(${BOOL_CREATE_LIBRARY})
     ## Create the required library
     add_library(${PROJECT_NAME}_lib STATIC ${EXEC_FILE_SOURCES} "MatrixOperations.cpp")
     ## Allow for threads
-    #target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
+    target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
+    target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 
     ## If the file is successfully created, move it to bin and create a dir
     ## for the current lib_<compiler>_<OS>_<version>
