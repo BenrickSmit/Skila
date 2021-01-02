@@ -1,8 +1,12 @@
 #include <iostream>
+#include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
 #include "Skila.h"
 
+#include <iostream>
+
+#define  GLEW_STATIC 
 
 int main(void)
 {
@@ -23,11 +27,25 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    // Setup GLEW
+    if (glewInit() != GLEW_OK) {
+        std::cerr << "ERROR: glewInit() main.cpp. Cannot initialize GLEW!" << std::endl;
+    }else {
+        std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
+    }
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
+
+        // LEGACY CODE FOR TESTING
+        glBegin(GL_TRIANGLES);
+        glVertex2f(-0.5f, -0.5f);
+        glVertex2f( 0.0f,  0.5f);
+        glVertex2f( 0.5f, -0.5f);
+        glEnd();
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);

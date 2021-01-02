@@ -34,7 +34,7 @@ include_directories(lib)
 add_subdirectory(src)
 
 ##------------------------------------------------------------------------------
-## SECTION: Enable OpenGL and GLFW
+## SECTION: Enable OpenGL, GLFW, GLEW
 ##------------------------------------------------------------------------------
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
@@ -47,7 +47,8 @@ set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "Build the GLFW documentation")
 set(GLFW_INSTALL OFF CACHE INTERNAL "Generate installation target")
 add_subdirectory(${GLFW_DIR})
 
-
+## GLEW
+set(GLEW_DIR lib/glew-2.1.0)
 
 ##------------------------------------------------------------------------------
 ## SECTION: Enable testing on the project

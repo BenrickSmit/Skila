@@ -56,6 +56,9 @@ if(${BOOL_CREATE_EXECUTABLE})
     target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
     target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL ${OPENGL_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
+    #target_link_libraries(${PROJECT_NAME} PRIVATE ${GLFW_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} PRIVATE glew ${GLEW_DIR}/lib/Release/Win32/)
+    target_link_directories(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/include)
     
     ## If the file is successfully created, move it to bin and create a dir
     ## for the current <compiler>_<OS>_<version>
