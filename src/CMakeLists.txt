@@ -31,14 +31,11 @@ set(THREADS_PREFER_PTHREADS_FLAG ON)
 find_package(Threads REQUIRED)
 find_package(OpenGL REQUIRED)
 
-set(GLEW_DIR "../lib/glew-cmake")
-set(GLM_DIR "../lib/glm")
+set(GLEW_DIR "${CMAKE_SOURCE_DIR}/lib/glew")
+set(GLM_DIR "${CMAKE_SOURCE_DIR}/lib/glm")
 include_directories(
     "${GLEW_DIR}/include")
 add_definitions(
-    -DTW_STATIC
-    -DTW_NO_LIB_PRAGMA
-    -DTW_NO_DIRECT3D
     -DGLEW_STATIC)
 
 ##------------------------------------------------------------------------------
@@ -49,9 +46,7 @@ if(${BOOL_CREATE_EXECUTABLE})
     add_executable(${PROJECT_NAME} ${EXEC_FILE_SOURCES})
     ## ALlow for 32-bit compilation
     if(BOOL_32_BIT_COMPILATION)
-        if(!UNIX)
-            set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_OPTIONS "-m32" LINK_OPTIONS "-m32")
-        endif()
+        #set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_OPTIONS "-m32" LINK_OPTIONS "-m32")
     endif()
     ## Allow for Release and Debug Versions
     if(${BOOL_RELEASE_VERSION})
@@ -70,17 +65,16 @@ if(${BOOL_CREATE_EXECUTABLE})
     if(UNIX)
         ## For Unix-based Compilation
         add_compile_definitions(GLEW_STATIC)
-        set(GLEW_LINK_LIBRARY ${CMAKE_SOURCE_DIR}/libraries/glew/lib/glew32s.lib)
+        #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
+        target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/libGLEW.a)
         message(">> UNIX GLEW Compilation")
     else()
         ## For Windows Compilation
-        message(">> LOOKING IN : ${GLEW_DIR}")
         add_compile_definitions(GLEW_STATIC)
-        link_directories("${GLEW_DIR}/lib/Release/Win32/")
-        set(GLEW_LINK_LIBRARY ${CMAKE_SOURCE_DIR}/libraries/glew/lib/Release/Win32/glew23s.lib)
-        message(">> WINDOWS GLEW Compilation")
+        #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
+        target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/libGLEW.a)
     endif()
-    target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_LINK_LIBRARY})
+    
     
     ## If the file is successfully created, move it to bin and create a dir
     ## for the current <compiler>_<OS>_<version>
