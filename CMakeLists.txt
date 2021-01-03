@@ -32,6 +32,7 @@ project(${STRING_PROJECT_NAME} VERSION "${STRING_PROJECT_VERSION}")
 include_directories(includes)
 include_directories(lib)
 add_subdirectory(src)
+add_subdirectory(lib)
 
 ##------------------------------------------------------------------------------
 ## SECTION: Enable OpenGL, GLFW, GLEW
@@ -47,8 +48,10 @@ set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "Build the GLFW documentation")
 set(GLFW_INSTALL OFF CACHE INTERNAL "Generate installation target")
 add_subdirectory(${GLFW_DIR})
 
+
 ## GLEW
-set(GLEW_DIR lib/glew-2.1.0)
+add_subdirectory("lib/glew")
+
 
 ##------------------------------------------------------------------------------
 ## SECTION: Enable testing on the project

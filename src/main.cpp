@@ -6,7 +6,6 @@
 
 #include <iostream>
 
-#define  GLEW_STATIC 
 
 int main(void)
 {

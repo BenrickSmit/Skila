@@ -31,6 +31,16 @@ set(THREADS_PREFER_PTHREADS_FLAG ON)
 find_package(Threads REQUIRED)
 find_package(OpenGL REQUIRED)
 
+set(GLEW_DIR "../lib/glew-cmake")
+set(GLM_DIR "../lib/glm")
+include_directories(
+    "${GLEW_DIR}/include")
+add_definitions(
+    -DTW_STATIC
+    -DTW_NO_LIB_PRAGMA
+    -DTW_NO_DIRECT3D
+    -DGLEW_STATIC)
+
 ##------------------------------------------------------------------------------
 ## SECTION: Create an executable
 ##------------------------------------------------------------------------------
@@ -57,8 +67,20 @@ if(${BOOL_CREATE_EXECUTABLE})
     target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL ${OPENGL_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
     #target_link_libraries(${PROJECT_NAME} PRIVATE ${GLFW_LIBRARIES})
-    target_link_libraries(${PROJECT_NAME} PRIVATE glew ${GLEW_DIR}/lib/Release/Win32/)
-    target_link_directories(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/include)
+    if(UNIX)
+        ## For Unix-based Compilation
+        add_compile_definitions(GLEW_STATIC)
+        set(GLEW_LINK_LIBRARY ${CMAKE_SOURCE_DIR}/libraries/glew/lib/glew32s.lib)
+        message(">> UNIX GLEW Compilation")
+    else()
+        ## For Windows Compilation
+        message(">> LOOKING IN : ${GLEW_DIR}")
+        add_compile_definitions(GLEW_STATIC)
+        link_directories("${GLEW_DIR}/lib/Release/Win32/")
+        set(GLEW_LINK_LIBRARY ${CMAKE_SOURCE_DIR}/libraries/glew/lib/Release/Win32/glew23s.lib)
+        message(">> WINDOWS GLEW Compilation")
+    endif()
+    target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_LINK_LIBRARY})
     
     ## If the file is successfully created, move it to bin and create a dir
     ## for the current <compiler>_<OS>_<version>
