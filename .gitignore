@@ -39,3 +39,7 @@
 /bin
 /out
 .vs
+
+# Remove Library Docs as these are currently unneeded
+/lib/*/docs 
+/lib/*/doc
