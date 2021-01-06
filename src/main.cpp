@@ -206,6 +206,9 @@ int main(void)
         glfwPollEvents();
     }
 
+    // Remove the added shaders
+    glDeleteProgram(shader);
+
     glfwTerminate();
     return 0;
 }
