@@ -31,37 +31,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 46,
+				"line" : 45,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 62,
+				"line" : 58,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 63,
+				"line" : 59,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 75,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 81,
+				"line" : 84,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 38,
+				"line" : 37,
 				"parent" : 0
 			},
 			{
@@ -71,18 +65,18 @@
 				"command" : 3,
 				"file" : 1,
 				"line" : 32,
-				"parent" : 7
+				"parent" : 6
 			},
 			{
 				"command" : 3,
 				"file" : 1,
 				"line" : 33,
-				"parent" : 7
+				"parent" : 6
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 36,
+				"line" : 35,
 				"parent" : 0
 			}
 		]
@@ -102,23 +96,23 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"define" : "GLEW_STATIC"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 8,
+					"backtrace" : 7,
 					"path" : "C:/Users/Gary/source/repos/BenrickSmit/Skila/includes"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 8,
 					"path" : "C:/Users/Gary/source/repos/BenrickSmit/Skila/lib"
 				},
 				{
-					"backtrace" : 10,
-					"path" : "C:/Users/Gary/source/repos/BenrickSmit/Skila/lib/glew/include"
+					"backtrace" : 9,
+					"path" : "C:/Users/Gary/source/repos/BenrickSmit/Skila/lib/glew-2.2.0/include"
 				},
 				{
 					"backtrace" : 3,
@@ -178,12 +172,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "..\\..\\..\\..\\lib\\glew\\lib\\libGLEW.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 5,
-				"fragment" : "..\\..\\..\\..\\lib\\glew\\lib\\Release\\Win32\\glew32s.lib",
+				"fragment" : "..\\..\\..\\..\\lib\\glew-2.2.0\\lib\\Release\\x64\\glew32s.lib",
 				"role" : "libraries"
 			},
 			{

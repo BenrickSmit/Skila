@@ -124,11 +124,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "gtest::@857c2322dbd17fba0ec8"
+			"id" : "gtest_main::@857c2322dbd17fba0ec8"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "gtest_main::@857c2322dbd17fba0ec8"
+			"id" : "gtest::@857c2322dbd17fba0ec8"
 		}
 	],
 	"id" : "Skila_tests::@a44f0ac069e85531cdee",

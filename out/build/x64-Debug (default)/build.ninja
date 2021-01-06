@@ -140,7 +140,7 @@ build cmake_object_order_depends_target_Skila: phony || cmake_object_order_depen
 build src\CMakeFiles\Skila.dir\Coordinate.cpp.obj: CXX_COMPILER__Skila_release ..\..\..\src\Coordinate.cpp || cmake_object_order_depends_target_Skila
   DEFINES = -DGLEW_STATIC
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD -std:c++17
-  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew\include -I..\..\..\lib\glfw-3.3.2\include
+  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew-2.2.0\include -I..\..\..\lib\glfw-3.3.2\include
   OBJECT_DIR = src\CMakeFiles\Skila.dir
   OBJECT_FILE_DIR = src\CMakeFiles\Skila.dir
   TARGET_COMPILE_PDB = src\CMakeFiles\Skila.dir\
@@ -149,7 +149,7 @@ build src\CMakeFiles\Skila.dir\Coordinate.cpp.obj: CXX_COMPILER__Skila_release .
 build src\CMakeFiles\Skila.dir\MatrixOperations.cpp.obj: CXX_COMPILER__Skila_release ..\..\..\src\MatrixOperations.cpp || cmake_object_order_depends_target_Skila
   DEFINES = -DGLEW_STATIC
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD -std:c++17
-  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew\include -I..\..\..\lib\glfw-3.3.2\include
+  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew-2.2.0\include -I..\..\..\lib\glfw-3.3.2\include
   OBJECT_DIR = src\CMakeFiles\Skila.dir
   OBJECT_FILE_DIR = src\CMakeFiles\Skila.dir
   TARGET_COMPILE_PDB = src\CMakeFiles\Skila.dir\
@@ -158,7 +158,7 @@ build src\CMakeFiles\Skila.dir\MatrixOperations.cpp.obj: CXX_COMPILER__Skila_rel
 build src\CMakeFiles\Skila.dir\Object.cpp.obj: CXX_COMPILER__Skila_release ..\..\..\src\Object.cpp || cmake_object_order_depends_target_Skila
   DEFINES = -DGLEW_STATIC
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD -std:c++17
-  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew\include -I..\..\..\lib\glfw-3.3.2\include
+  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew-2.2.0\include -I..\..\..\lib\glfw-3.3.2\include
   OBJECT_DIR = src\CMakeFiles\Skila.dir
   OBJECT_FILE_DIR = src\CMakeFiles\Skila.dir
   TARGET_COMPILE_PDB = src\CMakeFiles\Skila.dir\
@@ -167,7 +167,7 @@ build src\CMakeFiles\Skila.dir\Object.cpp.obj: CXX_COMPILER__Skila_release ..\..
 build src\CMakeFiles\Skila.dir\Skila.cpp.obj: CXX_COMPILER__Skila_release ..\..\..\src\Skila.cpp || cmake_object_order_depends_target_Skila
   DEFINES = -DGLEW_STATIC
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD -std:c++17
-  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew\include -I..\..\..\lib\glfw-3.3.2\include
+  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew-2.2.0\include -I..\..\..\lib\glfw-3.3.2\include
   OBJECT_DIR = src\CMakeFiles\Skila.dir
   OBJECT_FILE_DIR = src\CMakeFiles\Skila.dir
   TARGET_COMPILE_PDB = src\CMakeFiles\Skila.dir\
@@ -176,7 +176,7 @@ build src\CMakeFiles\Skila.dir\Skila.cpp.obj: CXX_COMPILER__Skila_release ..\..\
 build src\CMakeFiles\Skila.dir\main.cpp.obj: CXX_COMPILER__Skila_release ..\..\..\src\main.cpp || cmake_object_order_depends_target_Skila
   DEFINES = -DGLEW_STATIC
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD -std:c++17
-  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew\include -I..\..\..\lib\glfw-3.3.2\include
+  INCLUDES = -I..\..\..\includes -I..\..\..\lib -I..\..\..\lib\glew-2.2.0\include -I..\..\..\lib\glfw-3.3.2\include
   OBJECT_DIR = src\CMakeFiles\Skila.dir
   OBJECT_FILE_DIR = src\CMakeFiles\Skila.dir
   TARGET_COMPILE_PDB = src\CMakeFiles\Skila.dir\
@@ -190,10 +190,10 @@ build src\CMakeFiles\Skila.dir\main.cpp.obj: CXX_COMPILER__Skila_release ..\..\.
 #############################################
 # Link the executable src\Skila.exe
 
-build src\Skila.exe: CXX_EXECUTABLE_LINKER__Skila_release src\CMakeFiles\Skila.dir\Coordinate.cpp.obj src\CMakeFiles\Skila.dir\MatrixOperations.cpp.obj src\CMakeFiles\Skila.dir\Object.cpp.obj src\CMakeFiles\Skila.dir\Skila.cpp.obj src\CMakeFiles\Skila.dir\main.cpp.obj | lib\glfw-3.3.2\src\glfw3.lib ..\..\..\lib\glew\lib\libGLEW.a ..\..\..\lib\glew\lib\Release\Win32\glew32s.lib || lib\glfw-3.3.2\src\glfw3.lib
+build src\Skila.exe: CXX_EXECUTABLE_LINKER__Skila_release src\CMakeFiles\Skila.dir\Coordinate.cpp.obj src\CMakeFiles\Skila.dir\MatrixOperations.cpp.obj src\CMakeFiles\Skila.dir\Object.cpp.obj src\CMakeFiles\Skila.dir\Skila.cpp.obj src\CMakeFiles\Skila.dir\main.cpp.obj | lib\glfw-3.3.2\src\glfw3.lib ..\..\..\lib\glew-2.2.0\lib\Release\x64\glew32s.lib || lib\glfw-3.3.2\src\glfw3.lib
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD
   LINK_FLAGS = /machine:x64 /INCREMENTAL:NO /subsystem:console
-  LINK_LIBRARIES = opengl32.lib  opengl32.lib  glu32.lib  lib\glfw-3.3.2\src\glfw3.lib  ..\..\..\lib\glew\lib\libGLEW.a  ..\..\..\lib\glew\lib\Release\Win32\glew32s.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = opengl32.lib  opengl32.lib  glu32.lib  lib\glfw-3.3.2\src\glfw3.lib  ..\..\..\lib\glew-2.2.0\lib\Release\x64\glew32s.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = src\CMakeFiles\Skila.dir
   POST_BUILD = cmd.exe /C "cd /D "C:\Users\Gary\source\repos\BenrickSmit\Skila\out\build\x64-Debug (default)\src" && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/Users/Gary/source/repos/BenrickSmit/Skila/build/src/Skila C:/Users/Gary/source/repos/BenrickSmit/Skila/bin/exec/MSVC_Windows_Skila_0.0.1"
   PRE_LINK = cd .

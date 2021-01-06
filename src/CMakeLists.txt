@@ -6,7 +6,6 @@ set(BOOL_CREATE_EXECUTABLE ON)
 set(BOOL_CREATE_LIBRARY OFF)
 set(BOOL_PROFILE_CODE OFF)
 set(BOOL_USE_BOOST OFF)
-set(BOOL_32_BIT_COMPILATION ON)
 
 ## Read the required C++ version
 file(STRINGS "../build_info/build_cxx_standard.txt" STRING_REQUIRED_CXX_STANDARD)
@@ -31,7 +30,7 @@ set(THREADS_PREFER_PTHREADS_FLAG ON)
 find_package(Threads REQUIRED)
 find_package(OpenGL REQUIRED)
 
-set(GLEW_DIR "${CMAKE_SOURCE_DIR}/lib/glew")
+set(GLEW_DIR "${CMAKE_SOURCE_DIR}/lib/glew-2.2.0")
 set(GLM_DIR "${CMAKE_SOURCE_DIR}/lib/glm")
 include_directories(
     "${GLEW_DIR}/include")
@@ -44,10 +43,7 @@ add_definitions(
 if(${BOOL_CREATE_EXECUTABLE})
     ## Create the required executable
     add_executable(${PROJECT_NAME} ${EXEC_FILE_SOURCES})
-    ## ALlow for 32-bit compilation
-    if(BOOL_32_BIT_COMPILATION)
-        #set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_OPTIONS "-m32" LINK_OPTIONS "-m32")
-    endif()
+    
     ## Allow for Release and Debug Versions
     if(${BOOL_RELEASE_VERSION})
         set_target_properties(${PROJECT_NAME} PROPERTIES RELEASE_POSTFIX "${CMAKE_RELEASE_POSTFIX}")
@@ -72,7 +68,6 @@ if(${BOOL_CREATE_EXECUTABLE})
         ## For Windows Compilation
         add_compile_definitions(GLEW_STATIC)
         #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
-        target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/libGLEW.a)
         
         ## x86/x86_64 application
         if(${BOOL_32_BIT_COMPILATION})
@@ -80,18 +75,20 @@ if(${BOOL_CREATE_EXECUTABLE})
             if(${BOOL_RELEASE_VERSION})
                 target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/Win32/glew32s.lib)
             else()
-                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/Win32/glew32s.lib)
+                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Debug/Win32/glew32s.lib)
             endif()
+            message(STATUS ">> Using Win32 Static GLEW Library")
         else()
             ## Release or Debug Library
             if(${BOOL_RELEASE_VERSION})
                 target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/x64/glew32s.lib)
             else()
-                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/x64/glew32s.lib)
+                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Debug/x64/glew32s.lib)
             endif()
+            message(STATUS ">> Using x64 Static GLEW Library")
         endif()
         
-        message(STATUS ">> Windows glew Compilation")
+        message(STATUS ">> Windows GLEW Compilation")
     endif()
     
     
