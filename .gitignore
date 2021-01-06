@@ -35,6 +35,6 @@
 .vscode
 
 # the build project
-Skila/build/
-Skila/bin/
+/build
+/bin
 .vs
