@@ -5,7 +5,7 @@
 set(BOOL_CREATE_TESTS ON)
 set(BOOL_CREATE_EXECUTABLE ON)
 set(BOOL_CREATE_LIBRARY OFF)
-set(BOOL_RELEASE_VERSION OFF)
+set(BOOL_RELEASE_VERSION ON)
 
 ## For use with debug and release executables
 set(CMAKE_DEBUG_POSTFIX "-debug")
