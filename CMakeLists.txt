@@ -50,7 +50,7 @@ add_subdirectory(${GLFW_DIR})
 
 
 ## GLEW
-add_subdirectory("${CMAKE_SOURCE_DIR}/lib/glew/build/cmake" "${CMAKE_SOURCE_DIR/lib/glew/}")
+add_subdirectory("${CMAKE_SOURCE_DIR}/lib/glew-2.2.0/build/cmake" "${CMAKE_SOURCE_DIR/lib/glew-2.2.0/}")
 
 
 ##------------------------------------------------------------------------------

@@ -1,0 +1,3 @@
+﻿  glew.c
+     Creating library ..\..\lib\Release\Win32\glew32.lib and object ..\..\lib\Release\Win32\glew32.exp
+  glew_shared.vcxproj -> C:\Users\Gary\source\repos\BenrickSmit\Skila\lib\glew-2.2.0\bin\Release\Win32\glew32.dll

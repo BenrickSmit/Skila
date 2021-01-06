@@ -51,10 +51,10 @@ if(${BOOL_CREATE_EXECUTABLE})
     ## Allow for Release and Debug Versions
     if(${BOOL_RELEASE_VERSION})
         set_target_properties(${PROJECT_NAME} PROPERTIES RELEASE_POSTFIX "${CMAKE_RELEASE_POSTFIX}")
-        message(">> BUILD_TYPE: RELEASE")
+        message(STATUS ">> BUILD_TYPE: RELEASE")
     else()
         set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "${CMAKE_DEBUG_POSTFIX}")
-        message(">> BUILD_TYPE: DEBUG")
+        message(STATUS ">> BUILD_TYPE: DEBUG")
     endif()
 
     ## Allow for threads
@@ -67,12 +67,31 @@ if(${BOOL_CREATE_EXECUTABLE})
         add_compile_definitions(GLEW_STATIC)
         #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
         target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/libGLEW.a)
-        message(">> UNIX GLEW Compilation")
+        message(STATUS ">> UNIX GLEW Compilation")
     else()
         ## For Windows Compilation
         add_compile_definitions(GLEW_STATIC)
         #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
         target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/libGLEW.a)
+        
+        ## x86/x86_64 application
+        if(${BOOL_32_BIT_COMPILATION})
+            ## Release or Debug Library
+            if(${BOOL_RELEASE_VERSION})
+                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/Win32/glew32s.lib)
+            else()
+                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/Win32/glew32s.lib)
+            endif()
+        else()
+            ## Release or Debug Library
+            if(${BOOL_RELEASE_VERSION})
+                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/x64/glew32s.lib)
+            else()
+                target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/x64/glew32s.lib)
+            endif()
+        endif()
+        
+        message(STATUS ">> Windows glew Compilation")
     endif()
     
     
