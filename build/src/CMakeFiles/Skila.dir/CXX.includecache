@@ -54,7 +54,7 @@ Coordinate.h
 Object.h
 ../includes/Object.h
 
-../lib/glew/include/GL/glew.h
+../lib/glew-2.1.0/include/GL/glew.h
 stddef.h
 -
 inttypes.h
@@ -118,11 +118,9 @@ GL/glu.h
 iostream
 -
 GL/glew.h
-/home/gary/Documents/Coding/C++/Skila/src/GL/glew.h
+-
 GLFW/glfw3.h
-/home/gary/Documents/Coding/C++/Skila/src/GLFW/glfw3.h
+-
 Skila.h
 /home/gary/Documents/Coding/C++/Skila/src/Skila.h
-iostream
--
 

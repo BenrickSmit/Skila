@@ -1,27 +1,27 @@
 [
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/MatrixOperations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/MatrixOperations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Object.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Object.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Object.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Skila.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Skila.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Skila.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Skila.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Skila.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/main.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/main.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/main.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/main.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/main.cpp"
 },
 {
@@ -105,24 +105,24 @@
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/linux_joystick.c"
 },
 {
-  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/visualinfo.dir/__/__/src/visualinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew/src/visualinfo.c",
-  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew/src/visualinfo.c"
+  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
+  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/visualinfo.dir/__/__/src/visualinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/visualinfo.c",
+  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/visualinfo.c"
 },
 {
-  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/glewinfo.dir/__/__/src/glewinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew/src/glewinfo.c",
-  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew/src/glewinfo.c"
+  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
+  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/glewinfo.dir/__/__/src/glewinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glewinfo.c",
+  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glewinfo.c"
 },
 {
-  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/glew_s.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew/src/glew.c",
-  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew/src/glew.c"
+  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
+  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/glew_s.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c",
+  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c"
 },
 {
-  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_BUILD -DGLEW_NO_GLU -Dglew_EXPORTS -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew/build/cmake/../../include  -O2 -DNDEBUG -fPIC   -o CMakeFiles/glew.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew/src/glew.c",
-  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew/src/glew.c"
+  "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
+  "command": "/usr/lib64/ccache/cc -DGLEW_BUILD -DGLEW_NO_GLU -Dglew_EXPORTS -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG -fPIC   -o CMakeFiles/glew.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c",
+  "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/googletest-release-1.10.0/googlemock",

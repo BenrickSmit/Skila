@@ -76,7 +76,7 @@ CMAKE_BINARY_DIR = /home/gary/Documents/Coding/C++/Skila/build
 all: src/all
 all: lib/all
 all: lib/glfw-3.3.2/all
-all: lib/glew/build/cmake/all
+all: lib/glew-2.1.0/build/cmake/all
 all: tests/all
 
 .PHONY : all
@@ -85,7 +85,7 @@ all: tests/all
 preinstall: src/preinstall
 preinstall: lib/preinstall
 preinstall: lib/glfw-3.3.2/preinstall
-preinstall: lib/glew/build/cmake/preinstall
+preinstall: lib/glew-2.1.0/build/cmake/preinstall
 preinstall: tests/preinstall
 
 .PHONY : preinstall
@@ -94,7 +94,7 @@ preinstall: tests/preinstall
 clean: src/clean
 clean: lib/clean
 clean: lib/glfw-3.3.2/clean
-clean: lib/glew/build/cmake/clean
+clean: lib/glew-2.1.0/build/cmake/clean
 clean: lib/googletest-release-1.10.0/clean
 clean: tests/clean
 
@@ -119,29 +119,29 @@ lib/clean:
 .PHONY : lib/clean
 
 #=============================================================================
-# Directory level rules for directory lib/glew/build/cmake
+# Directory level rules for directory lib/glew-2.1.0/build/cmake
 
 # Recursive "all" directory target.
-lib/glew/build/cmake/all: lib/glew/build/cmake/CMakeFiles/visualinfo.dir/all
-lib/glew/build/cmake/all: lib/glew/build/cmake/CMakeFiles/glewinfo.dir/all
-lib/glew/build/cmake/all: lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
-lib/glew/build/cmake/all: lib/glew/build/cmake/CMakeFiles/glew.dir/all
+lib/glew-2.1.0/build/cmake/all: lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/all
+lib/glew-2.1.0/build/cmake/all: lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/all
+lib/glew-2.1.0/build/cmake/all: lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/all
+lib/glew-2.1.0/build/cmake/all: lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/all
 
-.PHONY : lib/glew/build/cmake/all
+.PHONY : lib/glew-2.1.0/build/cmake/all
 
 # Recursive "preinstall" directory target.
-lib/glew/build/cmake/preinstall:
+lib/glew-2.1.0/build/cmake/preinstall:
 
-.PHONY : lib/glew/build/cmake/preinstall
+.PHONY : lib/glew-2.1.0/build/cmake/preinstall
 
 # Recursive "clean" directory target.
-lib/glew/build/cmake/clean: lib/glew/build/cmake/CMakeFiles/uninstall.dir/clean
-lib/glew/build/cmake/clean: lib/glew/build/cmake/CMakeFiles/visualinfo.dir/clean
-lib/glew/build/cmake/clean: lib/glew/build/cmake/CMakeFiles/glewinfo.dir/clean
-lib/glew/build/cmake/clean: lib/glew/build/cmake/CMakeFiles/glew_s.dir/clean
-lib/glew/build/cmake/clean: lib/glew/build/cmake/CMakeFiles/glew.dir/clean
+lib/glew-2.1.0/build/cmake/clean: lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/clean
+lib/glew-2.1.0/build/cmake/clean: lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/clean
+lib/glew-2.1.0/build/cmake/clean: lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/clean
+lib/glew-2.1.0/build/cmake/clean: lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/clean
+lib/glew-2.1.0/build/cmake/clean: lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/clean
 
-.PHONY : lib/glew/build/cmake/clean
+.PHONY : lib/glew-2.1.0/build/cmake/clean
 
 #=============================================================================
 # Directory level rules for directory lib/glfw-3.3.2
@@ -388,139 +388,139 @@ lib/glfw-3.3.2/src/CMakeFiles/glfw.dir/clean:
 .PHONY : lib/glfw-3.3.2/src/CMakeFiles/glfw.dir/clean
 
 #=============================================================================
-# Target rules for target lib/glew/build/cmake/CMakeFiles/uninstall.dir
+# Target rules for target lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir
 
 # All Build rule for target.
-lib/glew/build/cmake/CMakeFiles/uninstall.dir/all:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew/build/cmake/CMakeFiles/uninstall.dir/depend
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew/build/cmake/CMakeFiles/uninstall.dir/build
+lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/all:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gary/Documents/Coding/C++/Skila/build/CMakeFiles --progress-num= "Built target uninstall"
-.PHONY : lib/glew/build/cmake/CMakeFiles/uninstall.dir/all
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/all
 
 # Build rule for subdir invocation for target.
-lib/glew/build/cmake/CMakeFiles/uninstall.dir/rule: cmake_check_build_system
+lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew/build/cmake/CMakeFiles/uninstall.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 0
-.PHONY : lib/glew/build/cmake/CMakeFiles/uninstall.dir/rule
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
-uninstall: lib/glew/build/cmake/CMakeFiles/uninstall.dir/rule
+uninstall: lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/rule
 
 .PHONY : uninstall
 
 # clean rule for target.
-lib/glew/build/cmake/CMakeFiles/uninstall.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew/build/cmake/CMakeFiles/uninstall.dir/clean
-.PHONY : lib/glew/build/cmake/CMakeFiles/uninstall.dir/clean
+lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/clean
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/clean
 
 #=============================================================================
-# Target rules for target lib/glew/build/cmake/CMakeFiles/visualinfo.dir
+# Target rules for target lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir
 
 # All Build rule for target.
-lib/glew/build/cmake/CMakeFiles/visualinfo.dir/all: lib/glew/build/cmake/CMakeFiles/glew.dir/all
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/visualinfo.dir/depend
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/visualinfo.dir/build
+lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/all: lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/all
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gary/Documents/Coding/C++/Skila/build/CMakeFiles --progress-num=46,47 "Built target visualinfo"
-.PHONY : lib/glew/build/cmake/CMakeFiles/visualinfo.dir/all
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/all
 
 # Build rule for subdir invocation for target.
-lib/glew/build/cmake/CMakeFiles/visualinfo.dir/rule: cmake_check_build_system
+lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew/build/cmake/CMakeFiles/visualinfo.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 0
-.PHONY : lib/glew/build/cmake/CMakeFiles/visualinfo.dir/rule
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/rule
 
 # Convenience name for target.
-visualinfo: lib/glew/build/cmake/CMakeFiles/visualinfo.dir/rule
+visualinfo: lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/rule
 
 .PHONY : visualinfo
 
 # clean rule for target.
-lib/glew/build/cmake/CMakeFiles/visualinfo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/visualinfo.dir/clean
-.PHONY : lib/glew/build/cmake/CMakeFiles/visualinfo.dir/clean
+lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/clean
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/clean
 
 #=============================================================================
-# Target rules for target lib/glew/build/cmake/CMakeFiles/glewinfo.dir
+# Target rules for target lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir
 
 # All Build rule for target.
-lib/glew/build/cmake/CMakeFiles/glewinfo.dir/all: lib/glew/build/cmake/CMakeFiles/glew.dir/all
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/glewinfo.dir/depend
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/glewinfo.dir/build
+lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/all: lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/all
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gary/Documents/Coding/C++/Skila/build/CMakeFiles --progress-num=19,20 "Built target glewinfo"
-.PHONY : lib/glew/build/cmake/CMakeFiles/glewinfo.dir/all
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/all
 
 # Build rule for subdir invocation for target.
-lib/glew/build/cmake/CMakeFiles/glewinfo.dir/rule: cmake_check_build_system
+lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew/build/cmake/CMakeFiles/glewinfo.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 0
-.PHONY : lib/glew/build/cmake/CMakeFiles/glewinfo.dir/rule
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/rule
 
 # Convenience name for target.
-glewinfo: lib/glew/build/cmake/CMakeFiles/glewinfo.dir/rule
+glewinfo: lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/rule
 
 .PHONY : glewinfo
 
 # clean rule for target.
-lib/glew/build/cmake/CMakeFiles/glewinfo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/glewinfo.dir/clean
-.PHONY : lib/glew/build/cmake/CMakeFiles/glewinfo.dir/clean
+lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/clean
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/clean
 
 #=============================================================================
-# Target rules for target lib/glew/build/cmake/CMakeFiles/glew_s.dir
+# Target rules for target lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir
 
 # All Build rule for target.
-lib/glew/build/cmake/CMakeFiles/glew_s.dir/all:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew/build/cmake/CMakeFiles/glew_s.dir/depend
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew/build/cmake/CMakeFiles/glew_s.dir/build
+lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/all:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gary/Documents/Coding/C++/Skila/build/CMakeFiles --progress-num=17,18 "Built target glew_s"
-.PHONY : lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/all
 
 # Build rule for subdir invocation for target.
-lib/glew/build/cmake/CMakeFiles/glew_s.dir/rule: cmake_check_build_system
+lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew/build/cmake/CMakeFiles/glew_s.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 0
-.PHONY : lib/glew/build/cmake/CMakeFiles/glew_s.dir/rule
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule
 
 # Convenience name for target.
-glew_s: lib/glew/build/cmake/CMakeFiles/glew_s.dir/rule
+glew_s: lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule
 
 .PHONY : glew_s
 
 # clean rule for target.
-lib/glew/build/cmake/CMakeFiles/glew_s.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew/build/cmake/CMakeFiles/glew_s.dir/clean
-.PHONY : lib/glew/build/cmake/CMakeFiles/glew_s.dir/clean
+lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/clean
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/clean
 
 #=============================================================================
-# Target rules for target lib/glew/build/cmake/CMakeFiles/glew.dir
+# Target rules for target lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir
 
 # All Build rule for target.
-lib/glew/build/cmake/CMakeFiles/glew.dir/all:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew.dir/build.make lib/glew/build/cmake/CMakeFiles/glew.dir/depend
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew.dir/build.make lib/glew/build/cmake/CMakeFiles/glew.dir/build
+lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/all:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gary/Documents/Coding/C++/Skila/build/CMakeFiles --progress-num=15,16 "Built target glew"
-.PHONY : lib/glew/build/cmake/CMakeFiles/glew.dir/all
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/all
 
 # Build rule for subdir invocation for target.
-lib/glew/build/cmake/CMakeFiles/glew.dir/rule: cmake_check_build_system
+lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew/build/cmake/CMakeFiles/glew.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gary/Documents/Coding/C++/Skila/build/CMakeFiles 0
-.PHONY : lib/glew/build/cmake/CMakeFiles/glew.dir/rule
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule
 
 # Convenience name for target.
-glew: lib/glew/build/cmake/CMakeFiles/glew.dir/rule
+glew: lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule
 
 .PHONY : glew
 
 # clean rule for target.
-lib/glew/build/cmake/CMakeFiles/glew.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew.dir/build.make lib/glew/build/cmake/CMakeFiles/glew.dir/clean
-.PHONY : lib/glew/build/cmake/CMakeFiles/glew.dir/clean
+lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/clean
+.PHONY : lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/clean
 
 #=============================================================================
 # Target rules for target lib/googletest-release-1.10.0/googlemock/CMakeFiles/gmock_main.dir

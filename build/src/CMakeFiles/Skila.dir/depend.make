@@ -23,7 +23,7 @@ src/CMakeFiles/Skila.dir/main.cpp.o: ../includes/Coordinate.h
 src/CMakeFiles/Skila.dir/main.cpp.o: ../includes/MatrixOperations.h
 src/CMakeFiles/Skila.dir/main.cpp.o: ../includes/Object.h
 src/CMakeFiles/Skila.dir/main.cpp.o: ../includes/Skila.h
-src/CMakeFiles/Skila.dir/main.cpp.o: ../lib/glew/include/GL/glew.h
+src/CMakeFiles/Skila.dir/main.cpp.o: ../lib/glew-2.1.0/include/GL/glew.h
 src/CMakeFiles/Skila.dir/main.cpp.o: ../lib/glfw-3.3.2/include/GLFW/glfw3.h
 src/CMakeFiles/Skila.dir/main.cpp.o: ../src/main.cpp
 

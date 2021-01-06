@@ -30,7 +30,7 @@ set(THREADS_PREFER_PTHREADS_FLAG ON)
 find_package(Threads REQUIRED)
 find_package(OpenGL REQUIRED)
 
-set(GLEW_DIR "${CMAKE_SOURCE_DIR}/lib/glew-2.2.0")
+set(GLEW_DIR "${CMAKE_SOURCE_DIR}/lib/glew-2.1.0")
 set(GLM_DIR "${CMAKE_SOURCE_DIR}/lib/glm")
 include_directories(
     "${GLEW_DIR}/include")

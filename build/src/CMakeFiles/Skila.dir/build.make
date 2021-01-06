@@ -163,7 +163,7 @@ src/Skila: /usr/lib64/libOpenGL.so
 src/Skila: /usr/lib64/libGLX.so
 src/Skila: /usr/lib64/libGLU.so
 src/Skila: lib/glfw-3.3.2/src/libglfw3.a
-src/Skila: ../lib/glew/lib/libGLEW.a
+src/Skila: ../lib/glew-2.1.0/lib/libGLEW.a
 src/Skila: /usr/lib64/libGLX.so
 src/Skila: /usr/lib64/libOpenGL.so
 src/Skila: /usr/lib64/librt.so

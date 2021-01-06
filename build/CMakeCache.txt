@@ -579,13 +579,13 @@ glew-cmake_BUILD_SHARED:BOOL=ON
 glew-cmake_BUILD_STATIC:BOOL=ON
 
 //Value Computed by CMake
-glew_BINARY_DIR:STATIC=/home/gary/Documents/Coding/C++/Skila/build/lib/glew/build/cmake
+glew_BINARY_DIR:STATIC=/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake
 
 //Dependencies for the target
 glew_LIB_DEPENDS:STATIC=general;/usr/lib64/libOpenGL.so;general;/usr/lib64/libGLX.so;general;/usr/lib64/libGLU.so;
 
 //Value Computed by CMake
-glew_SOURCE_DIR:STATIC=/home/gary/Documents/Coding/C++/Skila/lib/glew/build/cmake
+glew_SOURCE_DIR:STATIC=/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake
 
 //Dependencies for the target
 glew_s_LIB_DEPENDS:STATIC=general;/usr/lib64/libOpenGL.so;general;/usr/lib64/libGLX.so;general;/usr/lib64/libGLU.so;

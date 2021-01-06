@@ -54,7 +54,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/gary/Documents/Coding/C++/Skila/build/lib/glew/build/cmake/cmake_install.cmake")
+  include("/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

@@ -249,7 +249,7 @@ uninstall: cmake_check_build_system
 
 # fast build rule for target.
 uninstall/fast:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew/build/cmake/CMakeFiles/uninstall.dir/build
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
 #=============================================================================
@@ -262,7 +262,7 @@ visualinfo: cmake_check_build_system
 
 # fast build rule for target.
 visualinfo/fast:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/visualinfo.dir/build
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/visualinfo.dir/build
 .PHONY : visualinfo/fast
 
 #=============================================================================
@@ -275,7 +275,7 @@ glewinfo: cmake_check_build_system
 
 # fast build rule for target.
 glewinfo/fast:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew/build/cmake/CMakeFiles/glewinfo.dir/build
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glewinfo.dir/build
 .PHONY : glewinfo/fast
 
 #=============================================================================
@@ -288,7 +288,7 @@ glew_s: cmake_check_build_system
 
 # fast build rule for target.
 glew_s/fast:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew/build/cmake/CMakeFiles/glew_s.dir/build
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build
 .PHONY : glew_s/fast
 
 #=============================================================================
@@ -301,7 +301,7 @@ glew: cmake_check_build_system
 
 # fast build rule for target.
 glew/fast:
-	$(MAKE) $(MAKESILENT) -f lib/glew/build/cmake/CMakeFiles/glew.dir/build.make lib/glew/build/cmake/CMakeFiles/glew.dir/build
+	$(MAKE) $(MAKESILENT) -f lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make lib/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build
 .PHONY : glew/fast
 
 #=============================================================================
