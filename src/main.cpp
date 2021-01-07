@@ -2,9 +2,30 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include <fstream>
+#include <string>
+#include <sstream>
+
 #include "Skila.h"
 
 //find documentation for OpenGL in docs.GL, go and read the documentation for each of these functions used
+
+// Parse through the shader
+static void ParseShader(const std::string& filepath){
+    std::ifstream file_stream(filepath);
+
+    std::string line;
+    while(getline(file_stream, line)){
+        if (line.find("#shader") != std::string::npos){
+            // Depending on the type of shader, set mode to that particular shader
+            if (line.find("vertex") != std::string::npos){
+                
+            }else if(line.find("fragment") != std::string::npos) {
+
+            }
+        }
+    }
+}
 
 // Creating shaders is a process that can be abstracted to save us from duplicated code
 // It's better to use only C++ types instead of OpenGL types since this helps us later with
@@ -165,24 +186,7 @@ int main(void)
 
 
     // Let's write the actual shader
-    std::string vertex_shader = 
-        "#version 330 core\n" // GLSL (OpenGL Shader Language version 3.3.0) without any deprecated versions (thanks to core)
-        "\n"
-        "layout(location == 0) in vec4 position;\n"   // Find the coordinates in index 0, as its the index of our attriburte
-        "\n"
-        "void main() {\n"
-        "   gl_Position = position;\n"              // We have a vec2, but we already told OpenGL that its vec2, so it can handle the conversion on auto
-        "\n"
-        "}\n"; 
-    std::string fragment_shader = 
-        "#version 330 core\n" // GLSL (OpenGL Shader Language version 3.3.0) without any deprecated versions (thanks to core)
-        "\n"
-        "out vec4 color;\n"   // Find the coordinates in index 0, as its the index of our attriburte
-        "\n"
-        "void main() {\n"
-        "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"              // We have a vec2, but we already told OpenGL that its vec2, so it can handle the conversion on auto
-        "\n"
-        "}\n";
+    
     unsigned int shader = CreateShader(vertex_shader, fragment_shader);
     // Now we bind the shader to make sure OpenGL uses our shaders
     glUseProgram(shader);
