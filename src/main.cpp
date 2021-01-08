@@ -169,10 +169,18 @@ int main(void)
 
     
     // Define the positions that draw the triangle
-    float positions[6] = {
-        -0.5f, -0.5f,
-         0.0f,  0.5f,
-         0.5f, -0.5f
+    float positions[] = {
+        -0.5f, -0.5f, // 0
+         0.5f, -0.5f, // 1
+         0.5f,  0.5f, // 2
+        -0.5f,  0.5f  // 3
+    };
+
+    // Index buffers help us reduce memory wastage in large projects. GPU memory is limited.
+    // this helps us reuse certain coordinates as necessary
+    unsigned int indices[] = {
+        0,1,2,
+        2,3,0
     };
 
     // Define the vertex buffer to give OpenGL the data to draw
@@ -192,7 +200,7 @@ int main(void)
     // STATIC means that the it will be drawn every frame, but not modified every frame
     // DYNAMIC means it will be drawn and modified every frame
     // DRAW means we want to draw the actual buffer
-    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_DYNAMIC_DRAW);
 
     // Need to call glVertex in order to enable the VertexAttrib pointer you use
     // The argument taken is the index you want to enable, in this case it's zero
@@ -209,8 +217,15 @@ int main(void)
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
 
+    // Creating out index buffer
+    unsigned int ibo;       //index buffer object
+    glGenBuffers(1, &ibo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_DYNAMIC_DRAW);
+
+
     // Let's write the actual shader
-    ShaderProgramSource source = ParseShader("/home/gary/Documents/Coding/C++/Skila/res/shaders/basic.shader");
+    ShaderProgramSource source = ParseShader("../res/shaders/basic.shader");
     std::cout << "VERTEC_SHADER:" << std::endl;
     std::cout << source.VertexSource << std::endl;
     std::cout << "FRAGMENT_SHADER:" << std::endl;
@@ -230,7 +245,7 @@ int main(void)
         // GLenum is what kind of primitive to draw, in this case GL_TRIANGLES
         // first here means which coordinate to draw first
         // count here means how many vertices to draw
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
