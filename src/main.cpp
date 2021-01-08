@@ -10,21 +10,45 @@
 
 //find documentation for OpenGL in docs.GL, go and read the documentation for each of these functions used
 
+// To contain the Shader Data
+struct ShaderProgramSource{
+    std::string VertexSource;
+    std::string FragmentSource;
+};
+
 // Parse through the shader
-static void ParseShader(const std::string& filepath){
+static ShaderProgramSource ParseShader(const std::string& filepath){
+    
+    enum class ShaderType {NONE=-1,VERTEX=0,FRAGMENT=1};
+    
     std::ifstream file_stream(filepath);
+    std::stringstream ss[2];
+    ShaderType type = ShaderType::NONE;
+
+    // Error Checking
+    if(!file_stream.is_open()){
+        std::cerr << "ERROR: opening shaders" << std::endl;
+        std::cerr << filepath << std::endl;
+    }else{
+        std::cout << "File Open: " << filepath << std::endl;
+    }
 
     std::string line;
     while(getline(file_stream, line)){
         if (line.find("#shader") != std::string::npos){
             // Depending on the type of shader, set mode to that particular shader
             if (line.find("vertex") != std::string::npos){
-                
+                type = ShaderType::VERTEX;
             }else if(line.find("fragment") != std::string::npos) {
-
+                type = ShaderType::FRAGMENT;
             }
+        }else{
+            // Add the code based on what kind of shader it is
+            ss[(int)type] << line << "\n";
         }
     }
+
+    return {ss[0].str(), ss[1].str()};
 }
 
 // Creating shaders is a process that can be abstracted to save us from duplicated code
@@ -186,8 +210,13 @@ int main(void)
 
 
     // Let's write the actual shader
+    ShaderProgramSource source = ParseShader("/home/gary/Documents/Coding/C++/Skila/res/shaders/basic.shader");
+    std::cout << "VERTEC_SHADER:" << std::endl;
+    std::cout << source.VertexSource << std::endl;
+    std::cout << "FRAGMENT_SHADER:" << std::endl;
+    std::cout << source.FragmentSource << std::endl;
     
-    unsigned int shader = CreateShader(vertex_shader, fragment_shader);
+    unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     // Now we bind the shader to make sure OpenGL uses our shaders
     glUseProgram(shader);
 

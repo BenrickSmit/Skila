@@ -121,6 +121,12 @@ GL/glew.h
 -
 GLFW/glfw3.h
 -
+fstream
+-
+string
+-
+sstream
+-
 Skila.h
 /home/gary/Documents/Coding/C++/Skila/src/Skila.h
 
