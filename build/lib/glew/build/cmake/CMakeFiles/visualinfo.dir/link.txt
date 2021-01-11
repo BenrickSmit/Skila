@@ -1,1 +1,0 @@
-/usr/lib64/ccache/cc -O2 -DNDEBUG  -rdynamic CMakeFiles/visualinfo.dir/__/__/src/visualinfo.c.o  -o ../../../../bin/visualinfo  -Wl,-rpath,/home/gary/Documents/Coding/C++/Skila/build/lib: ../../../libGLEW.so.2.1.0 -lX11 -lXext -lOpenGL -lGLX -lGLU 
