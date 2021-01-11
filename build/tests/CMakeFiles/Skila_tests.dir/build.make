@@ -189,9 +189,9 @@ tests/Skila_tests: tests/CMakeFiles/Skila_tests.dir/__/src/MatrixOperations.cpp.
 tests/Skila_tests: tests/CMakeFiles/Skila_tests.dir/__/src/Object.cpp.o
 tests/Skila_tests: tests/CMakeFiles/Skila_tests.dir/__/src/Skila.cpp.o
 tests/Skila_tests: tests/CMakeFiles/Skila_tests.dir/build.make
-tests/Skila_tests: lib/libgtestd.a
-tests/Skila_tests: lib/libgtest_maind.a
-tests/Skila_tests: lib/libgtestd.a
+tests/Skila_tests: lib/libgtest.a
+tests/Skila_tests: lib/libgtest_main.a
+tests/Skila_tests: lib/libgtest.a
 tests/Skila_tests: tests/CMakeFiles/Skila_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gary/Documents/Coding/C++/Skila/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Skila_tests"
 	cd /home/gary/Documents/Coding/C++/Skila/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Skila_tests.dir/link.txt --verbose=$(VERBOSE)

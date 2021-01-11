@@ -127,6 +127,10 @@ string
 -
 sstream
 -
+direct.h
+-
+unistd.h
+-
 Skila.h
 /home/gary/Documents/Coding/C++/Skila/src/Skila.h
 

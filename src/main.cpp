@@ -6,9 +6,25 @@
 #include <string>
 #include <sstream>
 
+#ifdef WINDOWS
+#include <direct.h>
+#define GetCurrentDir _getcwd
+#else
+#include <unistd.h>
+#define GetCurrentDir getcwd
+#endif
+
 #include "Skila.h"
 
 //find documentation for OpenGL in docs.GL, go and read the documentation for each of these functions used
+
+// Enable the Current Working Directory without FileSystem and its headache
+std::string get_current_dir() {
+   char buffer[FILENAME_MAX]; //create string buffer to hold path
+   GetCurrentDir( buffer, FILENAME_MAX );
+   std::string current_working_dir(buffer);
+   return current_working_dir;
+}
 
 // To contain the Shader Data
 struct ShaderProgramSource{
@@ -28,7 +44,7 @@ static ShaderProgramSource ParseShader(const std::string& filepath){
     // Error Checking
     if(!file_stream.is_open()){
         std::cerr << "ERROR: opening shaders" << std::endl;
-        std::cerr << filepath << std::endl;
+        //std::cerr << filepath << std::endl;
     }else{
         std::cout << "File Open: " << filepath << std::endl;
     }
@@ -225,7 +241,13 @@ int main(void)
 
 
     // Let's write the actual shader
-    ShaderProgramSource source = ParseShader("../res/shaders/basic.shader");
+    ShaderProgramSource source;
+    #ifdef __unix
+        source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
+    #else
+        source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
+    #endif
+
     std::cout << "VERTEC_SHADER:" << std::endl;
     std::cout << source.VertexSource << std::endl;
     std::cout << "FRAGMENT_SHADER:" << std::endl;

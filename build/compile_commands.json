@@ -1,182 +1,182 @@
 [
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -g   -std=gnu++17 -o CMakeFiles/Skila.dir/Coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -g   -std=gnu++17 -o CMakeFiles/Skila.dir/MatrixOperations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/MatrixOperations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -g   -std=gnu++17 -o CMakeFiles/Skila.dir/Object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Object.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Object.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Object.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -g   -std=gnu++17 -o CMakeFiles/Skila.dir/Skila.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Skila.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/Skila.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Skila.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Skila.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/src",
-  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -g   -std=gnu++17 -o CMakeFiles/Skila.dir/main.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/main.cpp",
+  "command": "/usr/lib64/ccache/c++  -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include  -O2 -DNDEBUG   -std=gnu++17 -o CMakeFiles/Skila.dir/main.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/main.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/main.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/context.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/context.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/context.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/init.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/init.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/init.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/input.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/input.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/input.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/monitor.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/monitor.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/monitor.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/vulkan.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/vulkan.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/vulkan.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/window.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/window.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/window.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_init.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_init.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_init.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_init.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_init.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_monitor.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_monitor.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_monitor.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_monitor.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_monitor.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_window.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_window.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/x11_window.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_window.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/x11_window.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/xkb_unicode.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/xkb_unicode.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/xkb_unicode.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/posix_time.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/posix_time.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/posix_time.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/posix_time.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/posix_time.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/posix_thread.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/posix_thread.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/posix_thread.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/posix_thread.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/posix_thread.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/glx_context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/glx_context.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/glx_context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/glx_context.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/glx_context.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/egl_context.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/egl_context.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/egl_context.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/osmesa_context.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/osmesa_context.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/osmesa_context.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src",
-  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -g -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/linux_joystick.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/linux_joystick.c",
+  "command": "/usr/lib64/ccache/cc -D_GLFW_USE_CONFIG_H -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/include -I/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src -I/home/gary/Documents/Coding/C++/Skila/build/lib/glfw-3.3.2/src  -O2 -DNDEBUG -fPIC   -Wall -std=gnu99 -o CMakeFiles/glfw.dir/linux_joystick.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/linux_joystick.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glfw-3.3.2/src/linux_joystick.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -g   -o CMakeFiles/visualinfo.dir/__/__/src/visualinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/visualinfo.c",
+  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/visualinfo.dir/__/__/src/visualinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/visualinfo.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/visualinfo.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -g   -o CMakeFiles/glewinfo.dir/__/__/src/glewinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glewinfo.c",
+  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/glewinfo.dir/__/__/src/glewinfo.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glewinfo.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glewinfo.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -g   -o CMakeFiles/glew_s.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c",
+  "command": "/usr/lib64/ccache/cc -DGLEW_NO_GLU -DGLEW_STATIC -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG   -o CMakeFiles/glew_s.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/glew-2.1.0/build/cmake",
-  "command": "/usr/lib64/ccache/cc -DGLEW_BUILD -DGLEW_NO_GLU -Dglew_EXPORTS -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -g -fPIC   -o CMakeFiles/glew.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c",
+  "command": "/usr/lib64/ccache/cc -DGLEW_BUILD -DGLEW_NO_GLU -Dglew_EXPORTS -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/build/cmake/../../include  -O2 -DNDEBUG -fPIC   -o CMakeFiles/glew.dir/__/__/src/glew.c.o   -c /home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/glew-2.1.0/src/glew.c"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/googletest-release-1.10.0/googlemock",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/src/gmock_main.cc",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/src/gmock_main.cc",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/src/gmock_main.cc"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/googletest-release-1.10.0/googlemock",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/include -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/src/gmock-all.cc",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/include -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/src/gmock-all.cc",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googlemock/src/gmock-all.cc"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/googletest-release-1.10.0/googletest",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/src/gtest_main.cc",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/src/gtest_main.cc",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/src/gtest_main.cc"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/lib/googletest-release-1.10.0/googletest",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/src/gtest-all.cc",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -I/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/src/gtest-all.cc",
   "file": "/home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/src/gtest-all.cc"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/tests_coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/tests/tests_coordinate.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/tests_coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/tests/tests_coordinate.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/tests/tests_coordinate.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/tests_matrix_operations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/tests/tests_matrix_operations.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/tests_matrix_operations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/tests/tests_matrix_operations.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/tests/tests_matrix_operations.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/tests_object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/tests/tests_object.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/tests_object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/tests/tests_object.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/tests/tests_object.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/__/src/Coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/__/src/Coordinate.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Coordinate.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/__/src/MatrixOperations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/__/src/MatrixOperations.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/MatrixOperations.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/__/src/Object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Object.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/__/src/Object.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Object.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Object.cpp"
 },
 {
   "directory": "/home/gary/Documents/Coding/C++/Skila/build/tests",
-  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -g   -o CMakeFiles/Skila_tests.dir/__/src/Skila.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Skila.cpp",
+  "command": "/usr/lib64/ccache/c++   -I/home/gary/Documents/Coding/C++/Skila/includes -I/home/gary/Documents/Coding/C++/Skila/lib -I/home/gary/Documents/Coding/C++/Skila/tests/../includes -I/home/gary/Documents/Coding/C++/Skila/tests/../src -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest/include -isystem /home/gary/Documents/Coding/C++/Skila/lib/googletest-release-1.10.0/googletest  -O2 -DNDEBUG   -o CMakeFiles/Skila_tests.dir/__/src/Skila.cpp.o -c /home/gary/Documents/Coding/C++/Skila/src/Skila.cpp",
   "file": "/home/gary/Documents/Coding/C++/Skila/src/Skila.cpp"
 }
 ]
