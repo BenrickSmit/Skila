@@ -28,6 +28,23 @@ else()
     set(CMAKE_BUILD_TYPE ${STRING_BUILD_TYPE})
 endif()
 
+## Read whether to create a 32bit application or 64bit application
+file(STRINGS "build_info/build_bit_release.txt" STRING_BUILD_ARCHITECTURE)
+if(NOT UNIX)
+    if(${STRING_BUILD_ARCHITECTURE} STREQUAL "64" OR ${STRING_BUILD_ARCHITECTURE} STREQUAL "x64")
+        SET(STRING_BUILD_ARCHITECTURE "x64")
+        SET(CMAKE_GENERATOR_PLATFORM ${STRING_BUILD_ARCHITECTURE})
+        message(STATUS ">> PLATFORM CHOICE: ${STRING_BUILD_ARCHITECTURE}} \"64Bit\"")
+    else()
+        SET(STRING_BUILD_ARCHITECTURE "x86")
+        SET(CMAKE_GENERATOR_PLATFORM ${STRING_BUILD_ARCHITECTURE})
+        message(STATUS ">> PLATFORM CHOICE: ${STRING_BUILD_ARCHITECTURE}} \"32Bit\"")
+    endif()
+else()
+    message(STATUS ">> PLATFORM CHOICE: PLATFORM DEFAULT ${CMAKE_GENERATOR_PLATFORM} as Unix/Unix-related Machine")
+endif()
+
+
 ## Obtain the project's base name and version number
 file(STRINGS "build_info/build_name.txt" STRING_PROJECT_NAME)
 file(STRINGS "build_info/build_version.txt" STRING_PROJECT_VERSION)
