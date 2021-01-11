@@ -7,6 +7,36 @@ set(BOOL_CREATE_LIBRARY OFF)
 set(BOOL_PROFILE_CODE OFF)
 set(BOOL_USE_BOOST OFF)
 
+## Read whether the application is a Debug or Release version
+## Redundant but can't hurt... I think? Shouldn't at least
+file(STRINGS "build_info/build_type.txt" STRING_BUILD_TYPE)
+SET(BOOL_RELEASE_VERSION ON)
+
+if(${STRING_BUILD_TYPE} STREQUAL "Debug" OR ${STRING_BUILD_TYPE} STREQUAL "debug")
+    SET(BOOL_RELEASE_VERSION OFF)
+    SET(STRING_BUILD_TYPE "debug")
+else()
+    SET(STRING_BUILD_TYPE "release")
+endif()
+
+if(${BOOL_RELEASE_VERSION})
+    set(CMAKE_BUILD_TYPE ${STRING_BUILD_TYPE})
+else()
+    set(CMAKE_BUILD_TYPE ${STRING_BUILD_TYPE})
+endif()
+
+## Read whether to create a 32bit application or 64bit application
+file(STRINGS "../build_info/build_bit_release.txt" STRING_BUILD_ARCHITECTURE)
+if(${STRING_BUILD_ARCHITECTURE} STREQUAL "64" OR ${STRING_BUILD_ARCHITECTURE} STREQUAL "x64")
+    SET(STRING_BUILD_ARCHITECTURE "x64")
+    SET(CMAKE_GENERATOR_PLATFORM ${STRING_BUILD_ARCHITECTURE})
+    message(STATUS "PLATFORM CHOICE: ${STRING_BUILD_ARCHITECTURE}} \"64Bit\"")
+else()
+SET(STRING_BUILD_ARCHITECTURE "x86")
+SET(CMAKE_GENERATOR_PLATFORM ${STRING_BUILD_ARCHITECTURE})
+message(STATUS "PLATFORM CHOICE: ${STRING_BUILD_ARCHITECTURE}} \"32Bit\"")
+endif()
+
 ## Read the required C++ version
 file(STRINGS "../build_info/build_cxx_standard.txt" STRING_REQUIRED_CXX_STANDARD)
 
