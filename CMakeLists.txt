@@ -5,16 +5,27 @@
 set(BOOL_CREATE_TESTS ON)
 set(BOOL_CREATE_EXECUTABLE ON)
 set(BOOL_CREATE_LIBRARY OFF)
-set(BOOL_RELEASE_VERSION ON)
 
 ## For use with debug and release executables
-set(CMAKE_DEBUG_POSTFIX "-debug")
+#set(CMAKE_DEBUG_POSTFIX "-debug")
+file(STRINGS "build_info/build_debug_prefix.txt" CMAKE_DEBUG_PREFIX)
 set(CMAKE_RELEASE_POSTFIX "")
 
-if(BOOL_RELEASE_VERSION)
-    set(CMAKE_BUILD_TYPE release)
+## Read whether the application is a Debug or Release version
+file(STRINGS "build_info/build_type.txt" STRING_BUILD_TYPE)
+SET(BOOL_RELEASE_VERSION ON)
+
+if(${STRING_BUILD_TYPE} STREQUAL "Debug" OR ${STRING_BUILD_TYPE} STREQUAL "debug")
+    SET(BOOL_RELEASE_VERSION OFF)
+    SET(STRING_BUILD_TYPE "debug")
 else()
-    set(CMAKE_BUILD_TYPE debug)
+    SET(STRING_BUILD_TYPE "release")
+endif()
+
+if(${BOOL_RELEASE_VERSION})
+    set(CMAKE_BUILD_TYPE ${STRING_BUILD_TYPE})
+else()
+    set(CMAKE_BUILD_TYPE ${STRING_BUILD_TYPE})
 endif()
 
 ## Obtain the project's base name and version number
