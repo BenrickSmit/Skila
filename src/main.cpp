@@ -294,6 +294,22 @@ int main(void)
     // Now we bind the shader to make sure OpenGL uses our shaders
     GLCall(glUseProgram(shader));
 
+    // We need to get the location of the Shader Uniform we wish to send data to
+    // we do this by getting the ID from OpenGL. NOTE: the we need a shader that
+    // is already bound for this to work properly.
+    // shader is the required GPU program to query
+    // "u_colour" is the variable we want
+    GLCall(int location = glGetUniformLocation(shader, "u_colour"));
+    // We also need to assert and make sure that location != -1. This means
+    // it couldn't find the shader or that the uniform in the shader is unused
+    ASSERT(location != -1);
+
+    // Set the colour of the program via uniform
+    // Why glUniform4f? We are sending 4 pieces of data to the GPU
+    // and their types are all floats
+    // location is the queried location of the uniform in the shader
+    GLCall(glUniform4f(location, 0.2f, 0.3f, 0.8f, 1.0f));
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
