@@ -213,6 +213,9 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
+    // Sync framerate to screen
+    glfwSwapInterval(1);
+
     // Setup GLEW
     if (glewInit() != GLEW_OK) {
         std::cerr << "ERROR: glewInit() main.cpp. Cannot initialize GLEW!" << std::endl;
