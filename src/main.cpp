@@ -284,11 +284,6 @@ int main(void)
     #else
         source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
     #endif
-
-    std::cout << "VERTEC_SHADER:" << std::endl;
-    std::cout << source.VertexSource << std::endl;
-    std::cout << "FRAGMENT_SHADER:" << std::endl;
-    std::cout << source.FragmentSource << std::endl;
     
     unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
     // Now we bind the shader to make sure OpenGL uses our shaders
@@ -308,20 +303,34 @@ int main(void)
     // Why glUniform4f? We are sending 4 pieces of data to the GPU
     // and their types are all floats
     // location is the queried location of the uniform in the shader
-    GLCall(glUniform4f(location, 0.2f, 0.3f, 0.8f, 1.0f));
+    GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
 
+    float uniform_input_red = 0.0f;
+    float increment = 0.05f;
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
+
+        // Uniforms are called per draw
+        GLCall(glUniform4f(location, uniform_input_red, 0.3f, 0.8f, 1.0f));
+
         // This is the method to use when we don't have an index buffer, which we don't yet
         // GLenum is what kind of primitive to draw, in this case GL_TRIANGLES
         // first here means which coordinate to draw first
         // count here means how many vertices to draw
         GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
-        
+
+        // Enable colour animation
+        if (uniform_input_red > 1.0f){
+            increment = -0.05f;
+        }else if(uniform_input_red < 0.0f) {
+            increment = 0.05f;
+        }
+        uniform_input_red += increment;
+
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
