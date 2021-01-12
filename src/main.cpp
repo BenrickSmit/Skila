@@ -302,7 +302,7 @@ int main(void)
     GLCall(int location = glGetUniformLocation(shader, "u_colour"));
     // We also need to assert and make sure that location != -1. This means
     // it couldn't find the shader or that the uniform in the shader is unused
-    ASSERT(location != -1);
+    ASSERT(location  !=  -1);
 
     // Set the colour of the program via uniform
     // Why glUniform4f? We are sending 4 pieces of data to the GPU
