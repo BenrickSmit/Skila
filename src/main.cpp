@@ -6,61 +6,11 @@
 #include <string>
 #include <sstream>
 
-#ifdef WINDOWS
-#include <direct.h>
-#define GetCurrentDir _getcwd
-#else
-#include <unistd.h>
-#define GetCurrentDir getcwd
-#endif
+#include "Renderer.h"
 
-#include "Skila.h"
-
-// Create a Custom Compiler Specific Assert
-#ifdef __GNUC__
-    #include <signal.h>
-    #ifdef SIGTRAP
-        #define ASSERT(x) if(!(x)) raise(SIGTRAP);
-    #else
-        #define ASSERT(x) if(!(x)) raise(SIGABRT);
-    #endif
-#elif defined( __clang__ )
-    #define ASSERT(x) if(!(x)) __debugbreak();
-#elif defined( _MSV_VER )
-    #define ASSERT(x) if(!(x)) __debugbreak();
-#endif
-
-#define GLCall(x) GLClearError();\
-    x;\
-    ASSERT(GLLogCall(#x, __FILE__, __LINE__));
-
-//find documentation for OpenGL in docs.GL, go and read the documentation for each of these functions used
-
-// Enable the Current Working Directory without FileSystem and its headache
-std::string get_current_dir() {
-   char buffer[FILENAME_MAX]; //create string buffer to hold path
-   GetCurrentDir( buffer, FILENAME_MAX );
-   std::string current_working_dir(buffer);
-   return current_working_dir;
-}
-
-static void GLClearError(){
-    // This function doesn't really care about the actual errors, it just wants
-    // to clear all the errors
-    while(glGetError() != GL_NO_ERROR);
-    // Alternative is: while(!glGetError()); since GL_NO_ERROR == 0;
-}
-
-static bool GLLogCall(const char* function, const char* file, int line){
-    // This function will return information about the error given
-    // it will continue to run while GLenum is not 0 either
-    while(GLenum error = glGetError()){
-        std::cout << "[OpenGL Error] " << "( " << error << " ): " << function << ", "
-        << file << ": " << line << std::endl;
-        return false;
-    };
-    return true;
-}
+/** For proper documentation on OpenGL go to:
+ *  www.docs.GL 
+ * **/
 
 // To contain the Shader Data
 struct ShaderProgramSource{
@@ -202,8 +152,13 @@ int main(void)
     if (!glfwInit())
         return -1;
 
+    // State that we want to use the OpenGL Core Profile and the specific version
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(800, 600, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(600, 400, "Hello World", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -213,7 +168,7 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    // Sync framerate to screen
+    // Sync framerate to screen refresh rate, i.e. it sets v-sync.
     glfwSwapInterval(1);
 
     // Setup GLEW
@@ -239,6 +194,13 @@ int main(void)
         2,3,0
     };
 
+    // Create the vertex array object and hold its ID
+    // We only want to generate one vao object and store its ID in vao.
+    // There is nothing to bind the vao to, so we just bind the vao
+    unsigned int vao;
+    GLCall(glGenVertexArrays(1, &vao));
+    GLCall(glBindVertexArray(vao));
+
     // Define the vertex buffer to give OpenGL the data to draw
     // We can define many different buffers, but for now we only want 1 buffer
     // we also need to give the function a pointer to an unsigned int.
@@ -256,16 +218,16 @@ int main(void)
     // STATIC means that the it will be drawn every frame, but not modified every frame
     // DYNAMIC means it will be drawn and modified every frame
     // DRAW means we want to draw the actual buffer
-    GLCall(glBufferData(GL_ARRAY_BUFFER, 6 * 2 * sizeof(float), positions, GL_DYNAMIC_DRAW));
+    GLCall(glBufferData(GL_ARRAY_BUFFER, 4 * 2 * sizeof(float), positions, GL_DYNAMIC_DRAW));
 
-    // Need to call glVertex in order to enable the VertexAttrib pointer you use
+    // Need to call glEnableVertex in order to enable the VertexAttrib pointer you use
     // The argument taken is the index you want to enable, in this case it's zero
     GLCall(glEnableVertexAttribArray(0));
 
     // This function requires the Buffer to already be bound.
     // First argument is the index, in this case: 0. Since this is the first attribute
     // Second argument is the size, we have 2D coordinates, so we use 2 for our component count
-    // Third argument is hte type of data that we have that are stored, in this case floats
+    // Third argument is the type of data that we have that are stored, in this case floats
     // Fourth argument is whether we want our values to be normalised (between 0.0-1.0). Floats are already normalised
     // Fifth argument is the amount of bytes between each vertex (one point, basically). IF you have a struct, you can pass the size of that struct as well
     //          just remember: stride - the amount of bytes you need to go forward to get to the next vertex, etc
@@ -308,6 +270,15 @@ int main(void)
     // location is the queried location of the uniform in the shader
     GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
 
+
+    // Unbind everything that was bound before - does kind of lead to duplication
+    // of code for now, but its a learning situation
+    GLCall(glBindVertexArray(0));
+    GLCall(glUseProgram(0));
+    GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+
+
     float uniform_input_red = 0.0f;
     float increment = 0.05f;
     /* Loop until the user closes the window */
@@ -316,9 +287,14 @@ int main(void)
         /* Render here */
         GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
-
+        // Bind every loop
+        GLCall(glUseProgram(shader));
         // Uniforms are called per draw
-        GLCall(glUniform4f(location, uniform_input_red, 0.3f, 0.8f, 1.0f));
+        GLCall(glUniform4f(location, uniform_input_red, 0.53f, 1.0f, 1.0f));
+
+        GLCall(glBindVertexArray(vao));
+        GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
+        
 
         // This is the method to use when we don't have an index buffer, which we don't yet
         // GLenum is what kind of primitive to draw, in this case GL_TRIANGLES
