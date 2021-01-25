@@ -8,6 +8,9 @@
 
 #include "Renderer.h"
 
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
+
 /** For proper documentation on OpenGL go to:
  *  www.docs.GL 
  * **/
@@ -201,24 +204,7 @@ int main(void)
     GLCall(glGenVertexArrays(1, &vao));
     GLCall(glBindVertexArray(vao));
 
-    // Define the vertex buffer to give OpenGL the data to draw
-    // We can define many different buffers, but for now we only want 1 buffer
-    // we also need to give the function a pointer to an unsigned int.
-    // buffer itself is only the ID of the generated buffer.
-    unsigned int buffer;
-    GLCall(glGenBuffers(1, &buffer));
-    // We have generated a buffer, now we want to select the buffer. Selecting
-    // a buffer in OpenGL is called Binding.
-    // GL_ARRAY_BUFFER basically just says that it's an array
-    // we select the ID of the buffer we've just generated
-    GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer));
-    // We have specified a buffer, but not really the data in it. We have only
-    // specified that we are going to work in it.
-    // Here we specify the buffer data and how big it is
-    // STATIC means that the it will be drawn every frame, but not modified every frame
-    // DYNAMIC means it will be drawn and modified every frame
-    // DRAW means we want to draw the actual buffer
-    GLCall(glBufferData(GL_ARRAY_BUFFER, 4 * 2 * sizeof(float), positions, GL_DYNAMIC_DRAW));
+    VertexBuffer vb(positions, 4 * 2 * sizeof(float));
 
     // Need to call glEnableVertex in order to enable the VertexAttrib pointer you use
     // The argument taken is the index you want to enable, in this case it's zero
@@ -236,11 +222,7 @@ int main(void)
 
 
     // Creating out index buffer
-    unsigned int ibo;       //index buffer object
-    GLCall(glGenBuffers(1, &ibo));
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
-    GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_DYNAMIC_DRAW));
-
+    IndexBuffer ib(indices, 6);
 
     // Let's write the actual shader
     ShaderProgramSource source;
@@ -293,7 +275,7 @@ int main(void)
         GLCall(glUniform4f(location, uniform_input_red, 0.53f, 1.0f, 1.0f));
 
         GLCall(glBindVertexArray(vao));
-        GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo));
+        ib.bind();
         
 
         // This is the method to use when we don't have an index buffer, which we don't yet

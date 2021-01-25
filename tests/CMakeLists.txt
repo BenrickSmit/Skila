@@ -20,11 +20,57 @@ list(REMOVE_AT TEST_FILE_SOURCES ${MAIN_CPP_INDEX})
 list(FIND TEST_FILE_SOURCES "${CMAKE_SOURCE_DIR}/tests/../src/main.cpp" MAIN_CPP_INDEX)
 message(">> INDEX: ${MAIN_CPP_INDEX}")
 
+find_package(OpenGL REQUIRED)
+
+set(GLEW_DIR "${CMAKE_SOURCE_DIR}/lib/glew-2.1.0")
+set(GLM_DIR "${CMAKE_SOURCE_DIR}/lib/glm")
+include_directories(
+    "${GLEW_DIR}/include")
+add_definitions(
+    -DGLEW_STATIC)
+
+
 #add_executable(${TEST_PROJECT_NAME} tests_main.cpp)
 add_executable(${TEST_PROJECT_NAME} ${TEST_FILE_SOURCES})
 ## Find the Header And Source files to test
 target_include_directories(${TEST_PROJECT_NAME} PRIVATE ../includes/ )
 target_include_directories(${TEST_PROJECT_NAME} PRIVATE ../src/ )
+
+target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL ${OPENGL_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
+#target_link_libraries(${PROJECT_NAME} PRIVATE ${GLFW_LIBRARIES})
+if(UNIX)
+    ## For Unix-based Compilation
+    add_compile_definitions(GLEW_STATIC)
+    #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
+    target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/libGLEW.a)
+    message(STATUS ">> [TEST] UNIX GLEW Compilation")
+else()
+    ## For Windows Compilation
+    add_compile_definitions(GLEW_STATIC)
+    #set(GLEW_LINK_LIBRARY ${GLEW_DIR}/lib/glew32s.lib)
+    
+    ## x86/x86_64 application
+    if(${BOOL_32_BIT_COMPILATION})
+        ## Release or Debug Library
+        if(${BOOL_RELEASE_VERSION})
+            target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/Win32/glew32s.lib)
+        else()
+            target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Debug/Win32/glew32s.lib)
+        endif()
+        message(STATUS ">> Using Win32 Static GLEW Library")
+    else()
+        ## Release or Debug Library
+        if(${BOOL_RELEASE_VERSION})
+            target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Release/x64/glew32s.lib)
+        else()
+            target_link_libraries(${PROJECT_NAME} PRIVATE ${GLEW_DIR}/lib/Debug/x64/glew32s.lib)
+        endif()
+        message(STATUS ">> Using x64 Static GLEW Library")
+    endif()
+    
+    message(STATUS ">> Windows GLEW Compilation")
+endif()
 
 
 ## Add Google Test to the framework, and run all unit tests
