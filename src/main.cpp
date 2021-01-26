@@ -181,127 +181,127 @@ int main(void)
         std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     }
 
-    
-    // Define the positions that draw the triangle
-    float positions[] = {
-        -0.5f, -0.5f, // 0
-         0.5f, -0.5f, // 1
-         0.5f,  0.5f, // 2
-        -0.5f,  0.5f  // 3
-    };
-
-    // Index buffers help us reduce memory wastage in large projects. GPU memory is limited.
-    // this helps us reuse certain coordinates as necessary
-    unsigned int indices[] = {
-        0,1,2,
-        2,3,0
-    };
-
-    // Create the vertex array object and hold its ID
-    // We only want to generate one vao object and store its ID in vao.
-    // There is nothing to bind the vao to, so we just bind the vao
-    unsigned int vao;
-    GLCall(glGenVertexArrays(1, &vao));
-    GLCall(glBindVertexArray(vao));
-
-    VertexBuffer vb(positions, 4 * 2 * sizeof(float));
-
-    // Need to call glEnableVertex in order to enable the VertexAttrib pointer you use
-    // The argument taken is the index you want to enable, in this case it's zero
-    GLCall(glEnableVertexAttribArray(0));
-
-    // This function requires the Buffer to already be bound.
-    // First argument is the index, in this case: 0. Since this is the first attribute
-    // Second argument is the size, we have 2D coordinates, so we use 2 for our component count
-    // Third argument is the type of data that we have that are stored, in this case floats
-    // Fourth argument is whether we want our values to be normalised (between 0.0-1.0). Floats are already normalised
-    // Fifth argument is the amount of bytes between each vertex (one point, basically). IF you have a struct, you can pass the size of that struct as well
-    //          just remember: stride - the amount of bytes you need to go forward to get to the next vertex, etc
-    // Sixth argument is kind of the offset, but in this case it will be zero
-    GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
-
-
-    // Creating out index buffer
-    IndexBuffer ib(indices, 6);
-
-    // Let's write the actual shader
-    ShaderProgramSource source;
-    #ifdef __unix
-        source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
-    #else
-        source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
-    #endif
-    
-    unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
-    // Now we bind the shader to make sure OpenGL uses our shaders
-    GLCall(glUseProgram(shader));
-
-    // We need to get the location of the Shader Uniform we wish to send data to
-    // we do this by getting the ID from OpenGL. NOTE: the we need a shader that
-    // is already bound for this to work properly.
-    // shader is the required GPU program to query
-    // "u_colour" is the variable we want
-    GLCall(int location = glGetUniformLocation(shader, "u_colour"));
-    // We also need to assert and make sure that location != -1. This means
-    // it couldn't find the shader or that the uniform in the shader is unused
-    ASSERT(location  !=  -1);
-
-    // Set the colour of the program via uniform
-    // Why glUniform4f? We are sending 4 pieces of data to the GPU
-    // and their types are all floats
-    // location is the queried location of the uniform in the shader
-    GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
-
-
-    // Unbind everything that was bound before - does kind of lead to duplication
-    // of code for now, but its a learning situation
-    GLCall(glBindVertexArray(0));
-    GLCall(glUseProgram(0));
-    GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
-    GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
-
-
-    float uniform_input_red = 0.0f;
-    float increment = 0.05f;
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
     {
-        /* Render here */
-        GLCall(glClear(GL_COLOR_BUFFER_BIT));
+        // Define the positions that draw the triangle
+        float positions[] = {
+            -0.5f, -0.5f, // 0
+            0.5f, -0.5f, // 1
+            0.5f,  0.5f, // 2
+            -0.5f,  0.5f  // 3
+        };
 
-        // Bind every loop
-        GLCall(glUseProgram(shader));
-        // Uniforms are called per draw
-        GLCall(glUniform4f(location, uniform_input_red, 0.53f, 1.0f, 1.0f));
+        // Index buffers help us reduce memory wastage in large projects. GPU memory is limited.
+        // this helps us reuse certain coordinates as necessary
+        unsigned int indices[] = {
+            0,1,2,
+            2,3,0
+        };
 
+        // Create the vertex array object and hold its ID
+        // We only want to generate one vao object and store its ID in vao.
+        // There is nothing to bind the vao to, so we just bind the vao
+        unsigned int vao;
+        GLCall(glGenVertexArrays(1, &vao));
         GLCall(glBindVertexArray(vao));
-        ib.bind();
+
+        VertexBuffer vb(positions, 4 * 2 * sizeof(float));
+
+        // Need to call glEnableVertex in order to enable the VertexAttrib pointer you use
+        // The argument taken is the index you want to enable, in this case it's zero
+        GLCall(glEnableVertexAttribArray(0));
+
+        // This function requires the Buffer to already be bound.
+        // First argument is the index, in this case: 0. Since this is the first attribute
+        // Second argument is the size, we have 2D coordinates, so we use 2 for our component count
+        // Third argument is the type of data that we have that are stored, in this case floats
+        // Fourth argument is whether we want our values to be normalised (between 0.0-1.0). Floats are already normalised
+        // Fifth argument is the amount of bytes between each vertex (one point, basically). IF you have a struct, you can pass the size of that struct as well
+        //          just remember: stride - the amount of bytes you need to go forward to get to the next vertex, etc
+        // Sixth argument is kind of the offset, but in this case it will be zero
+        GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0));
+
+
+        // Creating out index buffer
+        IndexBuffer ib(indices, 6);
+
+        // Let's write the actual shader
+        ShaderProgramSource source;
+        #ifdef __unix
+            source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
+        #else
+            source = ParseShader(get_current_dir() + "/../../res/shaders/basic.shader");
+        #endif
         
+        unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
+        // Now we bind the shader to make sure OpenGL uses our shaders
+        GLCall(glUseProgram(shader));
 
-        // This is the method to use when we don't have an index buffer, which we don't yet
-        // GLenum is what kind of primitive to draw, in this case GL_TRIANGLES
-        // first here means which coordinate to draw first
-        // count here means how many vertices to draw
-        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+        // We need to get the location of the Shader Uniform we wish to send data to
+        // we do this by getting the ID from OpenGL. NOTE: the we need a shader that
+        // is already bound for this to work properly.
+        // shader is the required GPU program to query
+        // "u_colour" is the variable we want
+        GLCall(int location = glGetUniformLocation(shader, "u_colour"));
+        // We also need to assert and make sure that location != -1. This means
+        // it couldn't find the shader or that the uniform in the shader is unused
+        ASSERT(location  !=  -1);
 
-        // Enable colour animation
-        if (uniform_input_red > 1.0f){
-            increment = -0.05f;
-        }else if(uniform_input_red < 0.0f) {
-            increment = 0.05f;
+        // Set the colour of the program via uniform
+        // Why glUniform4f? We are sending 4 pieces of data to the GPU
+        // and their types are all floats
+        // location is the queried location of the uniform in the shader
+        GLCall(glUniform4f(location, 0.8f, 0.3f, 0.8f, 1.0f));
+
+
+        // Unbind everything that was bound before - does kind of lead to duplication
+        // of code for now, but its a learning situation
+        GLCall(glBindVertexArray(0));
+        GLCall(glUseProgram(0));
+        GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
+        GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+
+
+        float uniform_input_red = 0.0f;
+        float increment = 0.05f;
+        /* Loop until the user closes the window */
+        while (!glfwWindowShouldClose(window))
+        {
+            /* Render here */
+            GLCall(glClear(GL_COLOR_BUFFER_BIT));
+
+            // Bind every loop
+            GLCall(glUseProgram(shader));
+            // Uniforms are called per draw
+            GLCall(glUniform4f(location, uniform_input_red, 0.53f, 1.0f, 1.0f));
+
+            GLCall(glBindVertexArray(vao));
+            ib.bind();
+            
+
+            // This is the method to use when we don't have an index buffer, which we don't yet
+            // GLenum is what kind of primitive to draw, in this case GL_TRIANGLES
+            // first here means which coordinate to draw first
+            // count here means how many vertices to draw
+            GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+
+            // Enable colour animation
+            if (uniform_input_red > 1.0f){
+                increment = -0.05f;
+            }else if(uniform_input_red < 0.0f) {
+                increment = 0.05f;
+            }
+            uniform_input_red += increment;
+
+            /* Swap front and back buffers */
+            glfwSwapBuffers(window);
+
+            /* Poll for and process events */
+            glfwPollEvents();
         }
-        uniform_input_red += increment;
 
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
+        // Remove the added shaders
+        GLCall(glDeleteProgram(shader));
     }
-
-    // Remove the added shaders
-    GLCall(glDeleteProgram(shader));
-
     glfwTerminate();
     return 0;
 }
